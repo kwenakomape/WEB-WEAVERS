@@ -1,6 +1,8 @@
 
 //var coll = document.getElementById(lessons);
 var coll = document.querySelectorAll("#lessons");
+var UserTabs = document.querySelectorAll(".UserTab");
+
 var i;
 // sconsole.log(coll.length);
 for (i = 0; i < coll.length; i++) {
@@ -15,3 +17,10 @@ for (i = 0; i < coll.length; i++) {
     }
   });
 }
+
+
+// for (i = 0; i < UserTabs.length; i++) {
+//   UserTabs[i].addEventListener("click", function() {
+//     this.classList.add("addBoldText");
+//   });
+// }
