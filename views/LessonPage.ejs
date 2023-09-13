@@ -1,90 +1,41 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lesson Page</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-    <link rel="stylesheet" href="/style.css">
-    
-    <!-- <link rel="stylesheet" href="/public/Stylesheets/Lesson Page.css"> -->
-    
-</head>
-<body>
-    
-    <nav>
-        <div class="UserInnerNav">
-            <div class="logo">MENTKNOW</div>
-            <div><img class="profileImage" src="/profile.jpg" /></div>
-            <!-- <div><img class="profileImage" src="https://i.pravatar.cc/75" /></div> -->
-        </div>      
-    </nav>
 
-    <main>
-        <Section class="MenteeView">
-            <div class="Tablist">
-                <div class="UserTab" id="MenteeTabID">Overview</div>
-                <div class="UserTab"><i class="fa-solid fa-bullhorn"></i>Annoucement</div>
-                <div class="UserTab" id="lessons">Lessons</div>
-                <div  id="lessonList">
-                    <div class="UserTab">Lesson 1:  Goal Setting</div>
-                    <div class="UserTab">Lesson 2:  Time Management</div>
-                    <div class="UserTab">Lesson 3:  Study Skills</div>
-                    <div class="UserTab">Lesson 4:  Career Palnning</div>
-                    <div class="UserTab">Lesson 5:  Managing Health</div>
-                    <div class="UserTab">Lesson 6:  Managing Money</div>
-                    <div class="UserTab">Lesson 7:  Exam Preparation</div>
-                    <div class="UserTab">Lesson 8:  Managing stress</div>
-                    <div class="UserTab">Lesson 9:  Leadership Skills</div>
-                    <div class="UserTab">Lesson 10: Avoiding Procrastination</div>
-                </div>
-                <!-- <div class="UserTab">Week 2
-                    <span class="tooltiptext">The lessons are not available</span>
-                </div> -->
-               
-                <div class="UserTab">Chatroom</div>
-                <div class="UserTab">Section Info</div>
-            </div>
-            <div class="lessonPageSection">
-                <h2>Lesson 1: Goal Setting</h2>
-                <p> The first week of our lesson we are going to talk about goal setting. Goal Setting is very 
-                    important especially for first year students. In this section we are going to go through goal setting.
-                    The Student has do video the following video and answer the questions that follow.
-                </p>
-                <div class="watchVideo">
-                    
-                    <!-- <iframe width="560" height="315" src="https://www.youtube.com/embed/FFT6uP1fIFI" title="Setting Goals" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe> -->
-                    <iframe width="560" height="315" src="https://www.youtube.com/embed/PCRSVRD2EAk" title="Setting SMART Goals - How To Properly Set a Goal (animated)" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen>
+<% layout('./layouts/boilerplate')%>
+<%- include('./partials/Overview')%>
 
-                    </iframe>
-                </div>
-                <br>
-                <h2>Resources: Goal Setting</h2>
-                <p>Please find below resources for this weeks lesson</p>
-                <a href="https://www.getselfhelp.co.uk/docs/SMARTgoals.pdf " target="_blank">Goal_Setting.pdf</a>
-                <br>
-                <br>
-                <h2>Whiteboard: Goal Setting</h2>
-              
-                <p>Please add your thoughts to this weeks whiteboard</p>
-                
-                    <div class="whiteboardApi" style="width: 1200px; height: 700px;" id="wt-container"></div>
-                
-                    <script src="https://www.whiteboard.team/dist/api.js"></script>
-                    <script type="text/javascript">
-                        var wt = new api.WhiteboardTeam('#wt-container', {
-                            clientId: '8fa29ad3d03237f44d2d90b45716eb33',
-                            boardCode: 'testmentknow123',
-                            participant: {name:"<%=userInfo%>"}
-                        });
-                    </script>
-                
-                
-                
-            </div>
-        </Section>
+<section class="LessonPageSectionFlex">
+    <div class="lessonPageSection">
+        <h2>Lesson 1: Goal Setting</h2>
+        <p> The first week of our lesson we are going to talk about goal setting. Goal Setting is very 
+            important especially for first year students. In this section we are going to go through goal setting.
+            The Student has do video the following video and answer the questions that follow.
+        </p>
+        <div class="watchVideo">
+            
+            <!-- <iframe width="560" height="315" src="https://www.youtube.com/embed/FFT6uP1fIFI" title="Setting Goals" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe> -->
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/PCRSVRD2EAk" title="Setting SMART Goals - How To Properly Set a Goal (animated)" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen>
 
-    </main>
-    <script src="CollaspseMenu.js"></script>
-</body>
-</html>
+            </iframe>
+        </div>
+        <br>
+        <h2>Resources: Goal Setting</h2>
+        <p>Please find below resources for this weeks lesson</p>
+        <a href="https://www.getselfhelp.co.uk/docs/SMARTgoals.pdf " target="_blank">Goal_Setting.pdf</a>
+        <br>
+        <br>
+        <h2>Whiteboard: Goal Setting</h2>
+        
+        <p>Please add your thoughts to this weeks whiteboard</p>
+        
+            <div class="whiteboardApi" style="width: 1200px; height: 700px;" id="wt-container"></div>
+        
+            <script src="https://www.whiteboard.team/dist/api.js"></script>
+            <script type="text/javascript">
+                var wt = new api.WhiteboardTeam('#wt-container', {
+                    clientId: '8fa29ad3d03237f44d2d90b45716eb33',
+                    boardCode: 'testmentknow123',
+                    participant: {name:"<%=userInfo%>"}
+                });
+            </script>
+    </div>
+</Section>
+<script src="CollaspseMenu.js"></script>
