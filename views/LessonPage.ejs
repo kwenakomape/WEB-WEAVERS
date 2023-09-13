@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lesson Page</title>
     <link rel="stylesheet" href="/style.css">
+    <!-- <link rel="stylesheet" href="/public/Stylesheets/Lesson Page.css"> -->
     
 </head>
 <body>
@@ -22,16 +23,23 @@
             <div class="Tablist">
                 <div class="UserTab" id="MenteeTabID">Overview</div>
                 <div class="UserTab">Annoucement</div>
-                <div class="UserTab" onclick="location.href='/LessonPage';" >Week 1</div>
-                <div class="UserTab">Week 2
-                    <span class="tooltiptext">The lessons are not available</span>
+                <div class="UserTab" id="lessons">Lessons</div>
+                <div  id="lessonList">
+                    <div class="UserTab">Lesson 1:  Goal Setting</div>
+                    <div class="UserTab">Lesson 2:  Time Management</div>
+                    <div class="UserTab">Lesson 3:  Study Skills</div>
+                    <div class="UserTab">Lesson 4:  Career Palnning</div>
+                    <div class="UserTab">Lesson 5:  Managing Health</div>
+                    <div class="UserTab">Lesson 6:  Managing Money</div>
+                    <div class="UserTab">Lesson 7:  Exam Preparation</div>
+                    <div class="UserTab">Lesson 8:  Managing stress</div>
+                    <div class="UserTab">Lesson 9:  Leadership Skills</div>
+                    <div class="UserTab">Lesson 10: Avoiding Procrastination</div>
                 </div>
-                <div class="UserTab">Week 3<span class="tooltiptext">The lessons are not available</span></div>
-                <div class="UserTab">Week 4<span class="tooltiptext">The lessons are not available</span></div>
-                <div class="UserTab">Week 5<span class="tooltiptext">The lessons are not available</span></div>
-                <div class="UserTab">Week 6<span class="tooltiptext">The lessons are not available</span></div>
-                <div class="UserTab">Week 7<span class="tooltiptext">The lessons are not available</span></div>
-                <div class="UserTab">Week 8<span class="tooltiptext">The lessons are not available</span></div>
+                <!-- <div class="UserTab">Week 2
+                    <span class="tooltiptext">The lessons are not available</span>
+                </div> -->
+               
                 <div class="UserTab">Chatroom</div>
                 <div class="UserTab">Section Info</div>
             </div>
@@ -70,10 +78,11 @@
                     </script>
                 
                 
-                </body>
+                
             </div>
         </Section>
 
     </main>
+    <script src="CollaspseMenu.js"></script>
 </body>
 </html>

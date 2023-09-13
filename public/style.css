@@ -98,12 +98,17 @@ nav{
     margin-left: 0.35px;
     padding: 10px;
     cursor: pointer;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
  
 
 .UserTab:hover{
     /* border-bottom: #3b7e04; */
-    border-bottom: 4px solid #3b7e04;
+    /* border-bottom: 4px solid #3b7e04; */
+    background-color: #ccc;
+
 
 }
 #MenteeTabID,#MentorTabID{
@@ -162,10 +167,27 @@ nav{
     position: absolute;
     z-index: 1;
   }
-.UserTab:hover .tooltiptext {
+/* .UserTab:hover .tooltiptext {
     visibility: visible;
-  }
+  } */
+  /* .UserTab:hover {
+    visibility: visible;
+  } */
 
+  #lessonList {
+    /* padding: 0 18px; */
+    /* color: #444; */
+    /* background-color: #ccc; */
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.2s ease-out;
+    /* background-color: #f1f1f1; */
+  }
+  /* .lessons:hover{
+    background-color: #ccc;
+  }
+   */
+  
 
 
 
