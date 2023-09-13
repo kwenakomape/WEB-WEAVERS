@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lesson Page</title>
+    <link rel="stylesheet" href="/style.css">
+    
+</head>
+<body>
+    
+    <nav>
+        <div class="UserInnerNav">
+            <div class="logo">MENTKNOW</div>
+            <div><img class="profileImage" src="/profile.jpg" /></div>
+            <!-- <div><img class="profileImage" src="https://i.pravatar.cc/75" /></div> -->
+        </div>      
+    </nav>
+
+    <main>
+        <Section class="MenteeView">
+            <div class="Tablist">
+                <div class="UserTab" id="MenteeTabID">Overview</div>
+                <div class="UserTab">Annoucement</div>
+                <div class="UserTab" onclick="location.href='/LessonPage';" >Week 1</div>
+                <div class="UserTab">Week 2
+                    <span class="tooltiptext">The lessons are not available</span>
+                </div>
+                <div class="UserTab">Week 3<span class="tooltiptext">The lessons are not available</span></div>
+                <div class="UserTab">Week 4<span class="tooltiptext">The lessons are not available</span></div>
+                <div class="UserTab">Week 5<span class="tooltiptext">The lessons are not available</span></div>
+                <div class="UserTab">Week 6<span class="tooltiptext">The lessons are not available</span></div>
+                <div class="UserTab">Week 7<span class="tooltiptext">The lessons are not available</span></div>
+                <div class="UserTab">Week 8<span class="tooltiptext">The lessons are not available</span></div>
+                <div class="UserTab">Chatroom</div>
+                <div class="UserTab">Section Info</div>
+            </div>
+            <div class="lessonPageSection">
+                <h2>Lesson 1: Goal Setting</h2>
+                <p> The first week of our lesson we are going to talk about goal setting. Goal Setting is very 
+                    important especially for first year students. In this section we are going to go through goal setting.
+                    The Student has do video the following video and answer the questions that follow.
+                </p>
+                <div class="watchVideo">
+                    
+                    <!-- <iframe width="560" height="315" src="https://www.youtube.com/embed/FFT6uP1fIFI" title="Setting Goals" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe> -->
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/PCRSVRD2EAk" title="Setting SMART Goals - How To Properly Set a Goal (animated)" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen>
+
+                    </iframe>
+                </div>
+                <br>
+                <h2>Resources: Goal Setting</h2>
+                <p>Please find below resources for this weeks lesson</p>
+                <a href="https://www.getselfhelp.co.uk/docs/SMARTgoals.pdf " target="_blank">Goal_Setting.pdf</a>
+                <br>
+                <br>
+                <h2>Whiteboard: Goal Setting</h2>
+              
+                <p>Please add your thoughts to this weeks whiteboard</p>
+                
+                    <div class="whiteboardApi" style="width: 1200px; height: 700px;" id="wt-container"></div>
+                
+                    <script src="https://www.whiteboard.team/dist/api.js"></script>
+                    <script type="text/javascript">
+                        var wt = new api.WhiteboardTeam('#wt-container', {
+                            clientId: '8fa29ad3d03237f44d2d90b45716eb33',
+                            boardCode: 'testmentknow123',
+                            participant: {name:"<%=userInfo%>"}
+                        });
+                    </script>
+                
+                
+                </body>
+            </div>
+        </Section>
+
+    </main>
+</body>
+</html>

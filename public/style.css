@@ -1,0 +1,178 @@
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    
+}
+
+body{
+   
+    font-family: Arial, Helvetica, sans-serif;
+    transition-duration: 9s;
+}
+nav{
+    background-color:#155a7e;
+    color: white;
+    padding: 15px;
+    /* position: fixed;
+    width: 100%; */
+}
+
+.Homepage{
+    padding: 20px;
+}
+ .logo,.homepageTitle{
+    font-size: 32px;
+    
+}
+.homepageTitle{
+
+    margin-top: 40px;
+    font-weight: bold;
+}
+.Description{
+    margin-top: 15px;
+
+}
+.DescriptionText{
+    width: 30%;
+    font-size: 20px;
+    padding: 4px;
+    margin-bottom: 5px;
+}
+.LogSignButtons{
+    padding: 4px;
+}
+
+.loginButton,.SignButton,#SignUpbutton2,#button2{
+    width: 130px;
+    padding: 12px 0;
+    text-align: center;
+    border-radius: 25px;
+    font-weight:bolder;
+    font-size: 17px;
+    border: 2px solid #009688;
+    background: transparent;
+    cursor: pointer;
+    color: rgb(37, 143, 5);
+}
+.SignButton{
+    margin-left: 12px;
+}
+
+.SignUpdetails{
+    display: flex;
+    flex-direction: column;
+    margin-top: 50px;
+    height: 450px;
+    justify-content: space-between;
+    align-items: center;
+}
+.LogInDetails{
+    display: flex;
+    flex-direction: column;
+    margin-top: 50px;
+    height: 200px;
+    /* align-items: sp; */
+    justify-content: space-between;
+    align-items: center;
+
+}
+.Userdetails{
+    height: 40px;
+    width: 300px; 
+}
+#SignUpLabel,#LogInLabel{
+    font-weight: bold;
+}
+
+.UserTab{
+
+    width: 190px;
+    height: 40px;
+    border-left: 2.5px solid rgba(20, 20, 20, 0.87);
+    border-right: 2.5px solid rgba(20, 20, 20, 0.87);
+    border-bottom: 2.5px solid rgba(20, 20, 20, 0.87);
+    /* margin-top: 2px; */
+    margin-left: 0.35px;
+    padding: 10px;
+    cursor: pointer;
+}
+ 
+
+.UserTab:hover{
+    /* border-bottom: #3b7e04; */
+    border-bottom: 4px solid #3b7e04;
+
+}
+#MenteeTabID,#MentorTabID{
+    border-top: 2.5px solid rgba(20, 20, 20, 0.87);
+    margin-top: 0.6pxpx;
+   
+}
+.UserInnerNav{
+    display: flex;
+    justify-content: space-between;
+    
+}
+.profileImage{
+ 
+    padding: 2px;
+    border-radius: 50%;
+    width: 45px;
+    height: 45px;
+    cursor: pointer;
+}
+.profileImage:hover{
+    border: 2px solid black;
+}
+
+.MenteeView{
+    display: flex;
+}
+.lessonPageSection{
+    margin-left: 40px;
+    margin-top: 20px;
+}
+.lessonPageSection p{
+    width: 40%;
+    margin-top: 4px;
+    margin-bottom: 8px;
+}
+
+.whiteboardApi{
+    
+    border: 2px solid #009688;
+    margin-bottom: 40px;
+}
+
+.tooltiptext {
+    visibility: hidden;
+    width: 200px;
+    border: 2px solid black;
+    background-color: rgba(87, 84, 84, 0);
+    color:black;
+    font-size: small;
+    text-align: center;
+    /* border-radius: 6px; */
+    /* padding: 3px 0; */
+  
+    /* Position the tooltip */
+    position: absolute;
+    z-index: 1;
+  }
+.UserTab:hover .tooltiptext {
+    visibility: visible;
+  }
+
+
+
+
+
+
+
+
+
+
+
