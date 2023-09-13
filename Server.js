@@ -2,6 +2,7 @@ const express = require("express");
 const app = express();
 const path = require('path');
 const mongoose = require('mongoose');
+const ejsMate = require('ejs-mate');
 // const methodOverride = require('method-override');
 // const { v4: uuid } = require('uuid');
 
@@ -20,7 +21,8 @@ mongoose.connect('mongodb://0.0.0.0:27017/WebWeaversData', { useNewUrlParser: tr
     })
 
 //To parse form data in POST request body:
-app.use(express.urlencoded({ extended: true }))
+app.use(express.urlencoded({ extended: true }));
+app.engine('ejs', ejsMate);
 app.use(express.static(path.join(__dirname, '/public')));
 app.set('view engine','ejs');
 app.set('views', path.join(__dirname, '/views')); 

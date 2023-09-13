@@ -1,43 +1,21 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sign Up Page</title>
-    <link rel="stylesheet" href="style.css">
+<% layout('./layouts/boilerplate')%>
+
+<Section class="SigupSection">
     
-</head>
-<body>
-    
-    <nav>
-        <div class="logo">MENTKNOW</div>
-    </nav>
-
-    <main>
-        <Section class="SigupSection">
-            
-            <form action="/UserSectionStudent" method="POST">
-                <div class="SignUpdetails">
-                    <label  id="SignUpLabel">SignUp</label>
-                    <input class="Userdetails" type="text" placeholder="Name" id="name" name="Name">
-                    <input class="Userdetails" type="text" placeholder="Surname" id="Surname" name="Surname">
-                    <input class="Userdetails" type="text" placeholder="Student ID" id="Student ID" name="StudentID">
-                    <input class="Userdetails" type="text" placeholder="Email" id="Email" name="Email">
-                    <input class="Userdetails" type="password" placeholder="Password" id="password" name="Password">
-                    <input class="Userdetails" type="password" placeholder="Confirm password" id="Confirmpassword" name="Confirmpassword" >
-                    <a href="">Add profile picture</a>
-                    <button id="SignUpbutton2">Sign Up</button>
-                </div>
-                
-
-            </form>
-        </Section>
-
-    </main>
-    <script src="CollaspseMenu.js"></script>
-</body>
-</html>
-
+    <form action="/UserSectionStudent" method="POST">
+        <div class="SignUpdetails">
+            <label  id="SignUpLabel">SignUp</label>
+            <input class="Userdetails" type="text" placeholder="Name" id="name" name="Name">
+            <input class="Userdetails" type="text" placeholder="Surname" id="Surname" name="Surname">
+            <input class="Userdetails" type="text" placeholder="Student ID" id="Student ID" name="StudentID">
+            <input class="Userdetails" type="text" placeholder="Email" id="Email" name="Email">
+            <input class="Userdetails" type="password" placeholder="Password" id="password" name="Password">
+            <input class="Userdetails" type="password" placeholder="Confirm password" id="Confirmpassword" name="Confirmpassword" >
+            <a href="">Add profile picture</a>
+            <button id="SignUpbutton2">Sign Up</button>
+        </div>
+    </form>
+</Section>
 
 
 
