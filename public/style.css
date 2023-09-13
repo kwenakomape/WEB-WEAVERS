@@ -199,7 +199,12 @@ nav{
     margin-left: 60px;
 }
   
+#lessonList .UserTab{
+    /* margin-left: 6px; */
+    padding-left: 20px;
+    font-size: 14px;
 
+}
 
 
 
