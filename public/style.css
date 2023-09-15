@@ -133,7 +133,7 @@ nav{
     border: 2px solid black;
 }
 
-.MenteeView{
+.OverviewLessonSections{
     display: flex;
 }
 .lessonPageSection{
@@ -175,18 +175,18 @@ nav{
   } */
 
   #lessonList {
-    /* padding: 0 18px; */
-    /* color: #444; */
-    /* background-color: #ccc; */
+
     max-height: 0;
     overflow: hidden;
     transition: max-height 0.3s ease-out;
-    /* background-color: #f1f1f1; */
+
   }
-  /* .lessons:hover{
-    background-color: #ccc;
+  #lessonOverview{
+    overflow: hidden;
+    transition: max-height 0.3s ease-out;
+  
   }
-   */
+
 
 .addBoldText{
     font-weight:bolder;
@@ -205,7 +205,6 @@ nav{
     font-size: 14px;
 
 }
-
 
 
 

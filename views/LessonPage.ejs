@@ -1,5 +1,6 @@
 
 <% layout('./layouts/boilerplate')%>
+<section class="OverviewLessonSections">
 <%- include('./partials/Overview')%>
 
 <section class="LessonPageSectionFlex">
@@ -33,9 +34,10 @@
                 var wt = new api.WhiteboardTeam('#wt-container', {
                     clientId: '8fa29ad3d03237f44d2d90b45716eb33',
                     boardCode: 'testmentknow123',
-                    participant: {name:"<%=userInfo%>"}
+                    participant: {name:"kwena"}
                 });
             </script>
     </div>
 </Section>
-<script src="CollaspseMenu.js"></script>
+</section>
+<script src="./javascripts/CollaspseMenu.js"></script>
