@@ -9,6 +9,10 @@ const UserSchema = new Schema({
     Surname: String,
     StudentID: String,
     Email: String,
+    Role: {
+        type: String,
+        default: "Student"
+    },
 });
 UserSchema.plugin(passportLocalMongoose);
 const MenteeDetails = mongoose.model('MenteeDetails', UserSchema);
