@@ -13,6 +13,15 @@ const UserSchema = new Schema({
         type: String,
         default: "Student"
     },
+    timeSpentOnLessonPage: String,
+    
+    
+    
+   
+    UserMetrics:{countPdfClicks: String,vdeoClicks: String,WhiteBoardClicks: String, resourcesClicks: String} 
+
+    
+
 });
 UserSchema.plugin(passportLocalMongoose);
 const MenteeDetails = mongoose.model('MenteeDetails', UserSchema);

@@ -5,7 +5,7 @@
         <div class="UserTab" id="lessons"><span class="menuIcons"><i class="fa-solid fa-folder-open"></i></span>Lessons<i id="dropdown" class="fa-solid fa-arrow-down"></i></div>
         <div  id="lessonList">
             
-            <div class="UserTab" onclick="location.href='/LessonPage';" >Lesson 1:  Goal Setting</div>
+            <div class="UserTab" onclick="location.href='/LessonPage/content';" >Lesson 1:  Goal Setting</div>
             <div class="UserTab" onclick="location.href='/LessonPage';" >Lesson 2:  Time Management</div>
             <div class="UserTab" onclick="location.href='/LessonPage';" >Lesson 3:  Study Skills</div>
             <div class="UserTab" onclick="location.href='/LessonPage';" >Lesson 4:  Career Palnning</div>
@@ -18,20 +18,20 @@
         </div>
         <div class="UserTab" ><span class="menuIcons"><i class="fa-solid fa-comment"></i></span>Chatroom</div>
         <div class="UserTab" ><span class="menuIcons"><i class="fa-solid fa-user"></i></span></i>Section Info</div>
-        <% if (currentUser.Role==='Coordinator'){%>
+        <%# if (currentUser.Role==='Coordinator'){%>
             <div class="UserTab" ><span class="menuIcons"><i class="fa-solid fa-chalkboard"></i></span>View WhiteBoards</div>
-            <div class="UserTab" ><span class="menuIcons"><i class="fa-solid fa-file"></i></span>Report</div>
-            <div class="UserTab" ><span class="menuIcons"><i class="fa-solid fa-chart-line"></i></span>Analytics</div>
+            <div class="UserTab" onclick="location.href='/LessonPage/content';" ><span class="menuIcons"><i class="fa-solid fa-file"></i></span>Report</div>
+            <div class="UserTab" onclick="location.href='/Analysis';"><span class="menuIcons"><i class="fa-solid fa-chart-line"></i></span>Analytics</div>
        
-        <% }else if (currentUser.Role==='Student'){%>
+        <%# }else if (currentUser.Role==='Student'){%>
             <!-- <div class="UserTab" ><span class="menuIcons"><i class="fa-solid fa-chalkboard"></i></span>View WhiteBoards</div> -->
             <!-- <div class="UserTab" ><span class="menuIcons"><i class="fa-solid fa-file"></i></span>Report</div>
             <div class="UserTab" ><span class="menuIcons"><i class="fa-solid fa-chart-line"></i></span>Analytics</div> -->
-        <%} else if (currentUser.Role==='Mentor'){%>
+        <%#} else if (currentUser.Role==='Mentor'){%>
             <div class="UserTab" ><span class="menuIcons"><i class="fa-solid fa-chalkboard"></i></span>View WhiteBoards</div>
             <div class="UserTab" ><span class="menuIcons"><i class="fa-solid fa-file"></i></span>Report</div>
             <div class="UserTab" ><span class="menuIcons"><i class="fa-solid fa-chart-line"></i></span>Analytics</div>
-       <% }%>
+       <%# }%>
         
         <%#=currentUser._id%>
         <%#=currentUser.Surname%>

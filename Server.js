@@ -9,6 +9,8 @@ const LocalStrategy = require('passport-local');
 const MongoDBStore = require("connect-mongo")(session);
 const cookiepaerser = require('cookie-parser');
 const flash = require('connect-flash');
+const cors = require('cors');
+app.use(cors())
 
 
 const dbUrl = process.env.DB_URL || 'mongodb://0.0.0.0:27017/WebWeaversData';

@@ -133,8 +133,12 @@ nav{
     border: 2px solid black;
 }
 
-.OverviewLessonSections{
+.OverviewLessonSections,.VisualizationGraphs{
     display: flex;
+    
+}
+.VisualizationGraphs{
+    justify-content: space-around;
 }
 .lessonPageSection{
     margin-left: 40px;
@@ -205,7 +209,9 @@ nav{
     font-size: 14px;
 
 }
-
+#myChart,#myChart2,#myChart3{
+    margin-top: 40px;
+}
 
 
 

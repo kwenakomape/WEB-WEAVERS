@@ -8,6 +8,7 @@ const { render } = require('ejs');
 // const catchAsync = require('../utils/catchAsync');
 //const User = require('../models/user');
 const{isLoggedIn} = require('../Middleware');
+// const{totalTime} = require('../public/javascripts/CalcuLateTime.js');
 router.get('/', (req, res) => {
     // const username = 'kwena';
     // req.session.username  = 'kwena';
@@ -24,30 +25,46 @@ router.get('/SignUp', (req, res) => {
     
     res.render('SignUp');
 })
-router.get('/LessonPage',isLoggedIn,async (req, res) => {
+router.get('/LessonPage/content',isLoggedIn,async (req, res) => {
   
-     const { userInfo} = "kwena";
-    // const findAll = await User.find({});
-    // console.log("logging........")
-    res.render('LessonPage',{userInfo});
+    if (req.session.countVisitedSited) {
+        req.session.countVisitedSited += 1;
+    } else {
+        req.session.countVisitedSited = 1;
+    }
+    console.log(`You have viewed this page ${req.session.countVisitedSited} times`);
+    
+    return res.render('LessonPage');
 })
-router.get('/UserSection',isLoggedIn,async (req, res) => {
+router.get('/UserSection',async (req, res) => {
     
     res.render('Mentee');   
 })
 
-router.post('/LogIn',passport.authenticate('local', { failureRedirect: '/LogIn',keepSessionInfo: true, failureMessage: true },),async (req, res) => {
-    // res.render('Mentee');
+router.post('/LogIn',async (req, res) => {
+    // res.render('Mentee')
+    
+    
     const redirectUrl = req.session.returnTo || '/UserSection';
     
     delete req.session.returnTo;
     
-    res.redirect(redirectUrl);
+    res.render('Mentee');;
+
+})
+
+
+router.post('/UpdateDateBase',async (req, res) => {
+    
+    console.log(req.body);
+    // console.log("response: ", JSON.stringify(req.data));
+    // return "Eita";
 
 })
 
 router.post('/Register', async (req, res) => {
-
+    
+    
     const {username,Surname,password,StudentID,Email} = req.body;
     const newUser = new Mentee({username,Surname,StudentID,Email});
     const registerUser = await Mentee.register(newUser,password);
@@ -55,11 +72,6 @@ router.post('/Register', async (req, res) => {
         if (err) { return next(err); }
         return res.redirect('/UserSection');
       });
-    // res.render('Mentee',{Name:Name,Surname:Surname,StudentID:StudentID});
-   
-    // res.redirect('/UserSectionStudent');
-    // res.render(Mentee);
-
 })
 
 
@@ -70,5 +82,11 @@ router.get('/logout', function(req, res, next) {
       res.redirect('/');
     });
   });
+
+  router.get('/Analysis',isLoggedIn,async (req, res) => {
+    
+    res.render('Analysis');  
+})
+
 
 module.exports =router;
