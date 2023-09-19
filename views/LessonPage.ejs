@@ -34,41 +34,34 @@
 
             
          </script>
-        <script>
+        <!-- <script>
                 pdFile = document.querySelector('#pdFile');
                 whiteboard = document.querySelector('.whiteboardApi');;
                 var countPdfClicks = 0;
 
                 pdFile.addEventListener("click", function(req, res) {
                     countPdfClicks+=1;
-                    const getStarWarsPerson = async () => {
+                    const SendToDataBase = async () => {
                         try {
-                            let payload = { username: 'John Doe',
-                             password: 'gardener',
-                             countPdfClicks: countPdfClicks,
-                             countPdfClicks: countPdfClicks,
-                             countPdfClicks: countPdfClicks,
-                             password: 'gardener',
-                             password: 'gardener' };
+                            let payload = {
+                                        countPdfClicks: countPdfClicks,
+                                        vdeoClicks: 0,
+                                        WhiteBoardClicks: 0
+                                        };
                             let config = { headers: {'Content-Type': 'application/x-www-form-urlencoded',} }
 
                             const res = await axios.post(`http://localhost:3000/UpdateDateBase`,payload,config);
-                            // console.log(res.data);
-                            // console.log("passed");
+                            
                         } catch (e) {
                             console.log("ERROR", e);
                         }
                     };
 
-                    getStarWarsPerson();
-                    
-                    // console.log(countPdfClicks);
-                    
-                    
+                    SendToDataBase();
+
                 ;});
                 
-
-        </script>
+        </script> -->
         
         <p>Please add your thoughts to this weeks whiteboard</p>
         

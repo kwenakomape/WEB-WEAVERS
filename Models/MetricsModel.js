@@ -11,8 +11,8 @@ const Lesson = new Schema({
     vdeoClicks: String,
     WhiteBoardClicks: String,
     resourcesClicks: String,
-    WhiteBoardClicks: String,
     timeSpent: String,
+    UserID: String
 
 });
 // Metrics.plugin(passportLocalMongoose);

@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const Mentee = require('../Models/MenteeModel');
+const Metrics = require('../Models/MetricsModel');
 const passport = require('passport');
 const { render } = require('ejs');
 
@@ -36,37 +37,63 @@ router.get('/LessonPage/content',isLoggedIn,async (req, res) => {
     
     return res.render('LessonPage');
 })
-router.get('/UserSection',async (req, res) => {
+router.get('/UserSection',isLoggedIn,async (req, res) => {
     
     res.render('Mentee');   
 })
 
-router.post('/LogIn',async (req, res) => {
+router.post('/LogIn',passport.authenticate('local', { failureRedirect: '/LogIn',keepSessionInfo: true, failureMessage: true },),async (req, res) => {
     // res.render('Mentee')
-    
     
     const redirectUrl = req.session.returnTo || '/UserSection';
     
     delete req.session.returnTo;
     
-    res.render('Mentee');;
+    res.redirect(redirectUrl);
 
 })
 
 
 router.post('/UpdateDateBase',async (req, res) => {
     
+    console.log(req.user._id);
     console.log(req.body);
-    // console.log("response: ", JSON.stringify(req.data));
-    // return "Eita";
+    lesson1 = req.body;
+    console.log("------------------------------------------")
+    changeUsername = {Email: "kwenakomape2@gmail.com"};
+    UpatedData = await Mentee.updateMany({_id: req.user._id},{$set:{lesson1:req.body}});
+
+    //const SendMetrics = await Mentee.findByIdAndUpdate(req.user._id, {Email: "kwenakomape2@gmail.com"});
+    // console.log(SendMetrics);
+    // const User = await Mentee.findById(req.user._id);
+
+    // const {countPdfClicks,
+    //     vdeoClicks,
+    //     WhiteBoardClicks,
+    //     StudentID,resourcesClicks,} = req.body;
+    // console.log(req.body);
+
+    
 
 })
 
 router.post('/Register', async (req, res) => {
     
-    
+    lesson1 = {countPdfClicks: 0,videoClicks: 0,WhiteBoardClicks: 0,timeSpent: 0};
+    lesson2 = {countPdfClicks: 0,videoClicks: 0,WhiteBoardClicks: 0,timeSpent: 0};
+    lesson3 = {countPdfClicks: 0,videoClicks: 0,WhiteBoardClicks: 0,timeSpent: 0};
+    lesson4 = {countPdfClicks: 0,videoClicks: 0,WhiteBoardClicks: 0,timeSpent: 0};
+    lesson5 = {countPdfClicks: 0,videoClicks: 0,WhiteBoardClicks: 0,timeSpent: 0};
+    lesson6 = {countPdfClicks: 0,videoClicks: 0,WhiteBoardClicks: 0,timeSpent: 0};
+    lesson7 = {countPdfClicks: 0,videoClicks: 0,WhiteBoardClicks: 0,timeSpent: 0};
+    lesson8 = {countPdfClicks: 0,videoClicks: 0,WhiteBoardClicks: 0,timeSpent: 0};
+    lesson9 = {countPdfClicks: 0,videoClicks: 0,WhiteBoardClicks: 0,timeSpent: 0};
+    lesson10 = {countPdfClicks: 0,videoClicks: 0,WhiteBoardClicks: 0,timeSpent: 0};
+
     const {username,Surname,password,StudentID,Email} = req.body;
-    const newUser = new Mentee({username,Surname,StudentID,Email});
+    const newUser = new Mentee({username,Surname,StudentID,Email,
+                                lesson1,lesson2,lesson3,lesson4,lesson5,
+                                lesson6,lesson7,lesson8,lesson9,lesson10});
     const registerUser = await Mentee.register(newUser,password);
     req.login(registerUser, function(err) {
         if (err) { return next(err); }
