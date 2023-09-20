@@ -19,6 +19,7 @@ const secret = process.env.SECRET || 'thisshouldbeabettersecret!';
 const Mentee = require('./Models/MenteeModel');
 
 const UserRoutes = require('./routes/users');
+const LessonPagesRoutes = require('./routes/LessonPages');
 mongoose.connect(dbUrl, { useNewUrlParser: true, useUnifiedTopology: true })
     .then(() => {
         console.log("MONGO CONNECTION OPEN!!!");
@@ -86,6 +87,7 @@ app.use((req, res, next) => {
 })
 
 app.use('/',UserRoutes)
+app.use('/',LessonPagesRoutes)
 
 
 app.listen(3000,() =>{
