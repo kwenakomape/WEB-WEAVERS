@@ -21,11 +21,33 @@ ShowButton = document.querySelector('.ShowCharts');
 
 ShowButton.addEventListener("click", function(req, res) {
     
-    if(document.querySelector('.lesson-select').value==="lesson1"){
-        
-    }
-
+    LessonNumber = document.querySelector('.lesson-select').value;
+    SendToDataBase(LessonNumber);
     // if(LessonOptions=="All"){
     //     console.log("hahaha");
     // }
 ;});
+
+
+
+const SendToDataBase = async function (LessonNumber){
+    try {
+        let payload = {
+                    LessonNumber: LessonNumber,
+                    };
+        
+                    let config = { headers: {'Content-Type': 'application/x-www-form-urlencoded',} }
+
+        const res = await axios.post(`http://localhost:3000/Analysis`,payload,config);
+        
+    } catch (e) {
+        console.log("ERROR", e);
+    }
+};
+
+
+
+
+
+
+

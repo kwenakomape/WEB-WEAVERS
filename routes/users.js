@@ -48,7 +48,7 @@ router.post('/UpdateDateBase',async (req, res) => {
     let board= parseInt (WhiteBoardClicks);
     let time = parseFloat(timeSpent);
     
-    console.log(req.body);
+   
     
     
     const UpdateDateBase = async function (){
@@ -193,14 +193,116 @@ router.get('/logout', function(req, res, next) {
     });
   });
 
+router.post('/Analysis',isLoggedIn,async (req, res) => {
+    const GetAllData =  await Mentee.find({});
+    const {LessonNumber} = req.body;
+    // console.log(GetAllData[0]);
+    TotalsPdfClicks = 0;
+    TotalsVideoClicks = 0;
+    TotalsBoardClicks = 0;
+    TotalTime = 0;
+    TotalpageVisit = 0;
+
+    if(LessonNumber==="lesson1"){
+        for(let i=0;i<GetAllData.length;i++){
+            TotalsPdfClicks+= GetAllData[i].lesson1.countPdfClicks;
+            TotalsVideoClicks+= GetAllData[i].lesson1.videoClicks;
+            TotalsBoardClicks+= GetAllData[i].lesson1.WhiteBoardClicks;
+            TotalTime+= GetAllData[i].lesson1.timeSpent;
+            TotalpageVisit+= GetAllData[i].lesson1.pageVisited;
+            
+        }
+    }else if(LessonNumber==="lesson2"){
+        for(let i=0;i<GetAllData.length;i++){
+            TotalsPdfClicks+= GetAllData[i].lesson2.countPdfClicks;
+            TotalsVideoClicks+= GetAllData[i].lesson2.videoClicks;
+            TotalsBoardClicks+= GetAllData[i].lesson2.WhiteBoardClicks;
+            TotalTime+= GetAllData[i].lesson2.timeSpent;
+            TotalpageVisit+= GetAllData[i].lesson2.pageVisited;
+            
+        }
+    }else if(LessonNumber==="lesson3"){
+        for(let i=0;i<GetAllData.length;i++){
+            TotalsPdfClicks+= GetAllData[i].lesson3.countPdfClicks;
+            TotalsVideoClicks+= GetAllData[i].lesson3.videoClicks;
+            TotalsBoardClicks+= GetAllData[i].lesson3.WhiteBoardClicks;
+            TotalTime+= GetAllData[i].lesson3.timeSpent;
+            TotalpageVisit+= GetAllData[i].lesson3.pageVisited;
+            
+        }
+    }else if(LessonNumber==="lesson4"){
+        for(let i=0;i<GetAllData.length;i++){
+            TotalsPdfClicks+= GetAllData[i].lesson4.countPdfClicks;
+            TotalsVideoClicks+= GetAllData[i].lesson4.videoClicks;
+            TotalsBoardClicks+= GetAllData[i].lesson4.WhiteBoardClicks;
+            TotalTime+= GetAllData[i].lesson4.timeSpent;
+            TotalpageVisit+= GetAllData[i].lesson4.pageVisited;
+            
+        }
+    }else if(LessonNumber==="lesson5"){
+        for(let i=0;i<GetAllData.length;i++){
+            TotalsPdfClicks+= GetAllData[i].lesson5.countPdfClicks;
+            TotalsVideoClicks+= GetAllData[i].lesson5.videoClicks;
+            TotalsBoardClicks+= GetAllData[i].lesson5.WhiteBoardClicks;
+            TotalTime+= GetAllData[i].lesson5.timeSpent;
+            TotalpageVisit+= GetAllData[i].lesson5.pageVisited;
+            
+        }
+    }else if(LessonNumber==="lesson6"){
+        for(let i=0;i<GetAllData.length;i++){
+            TotalsPdfClicks+= GetAllData[i].lesson6.countPdfClicks;
+            TotalsVideoClicks+= GetAllData[i].lesson6.videoClicks;
+            TotalsBoardClicks+= GetAllData[i].lesson6.WhiteBoardClicks;
+            TotalTime+= GetAllData[i].lesson6.timeSpent;
+            TotalpageVisit+= GetAllData[i].lesson6.pageVisited;
+            
+        }
+    }else if(LessonNumber==="lesson7"){
+        for(let i=0;i<GetAllData.length;i++){
+            TotalsPdfClicks+= GetAllData[i].lesson7.countPdfClicks;
+            TotalsVideoClicks+= GetAllData[i].lesson7.videoClicks;
+            TotalsBoardClicks+= GetAllData[i].lesson7.WhiteBoardClicks;
+            TotalTime+= GetAllData[i].lesson7.timeSpent;
+            TotalpageVisit+= GetAllData[i].lesson7.pageVisited;
+            
+        }
+    }else if(LessonNumber==="lesson8"){
+        for(let i=0;i<GetAllData.length;i++){
+            TotalsPdfClicks+= GetAllData[i].lesson8.countPdfClicks;
+            TotalsVideoClicks+= GetAllData[i].lesson8.videoClicks;
+            TotalsBoardClicks+= GetAllData[i].lesson8.WhiteBoardClicks;
+            TotalTime+= GetAllData[i].lesson8.timeSpent;
+            TotalpageVisit+= GetAllData[i].lesson8.pageVisited;
+            
+        }
+    }else if(LessonNumber==="lesson9"){
+        for(let i=0;i<GetAllData.length;i++){
+            TotalsPdfClicks+= GetAllData[i].lesson9.countPdfClicks;
+            TotalsVideoClicks+= GetAllData[i].lesson9.videoClicks;
+            TotalsBoardClicks+= GetAllData[i].lesson9.WhiteBoardClicks;
+            TotalTime+= GetAllData[i].lesson9.timeSpent;
+            TotalpageVisit+= GetAllData[i].lesson9.pageVisited;
+            
+        }
+    }else if(LessonNumber==="lesson10"){
+        for(let i=0;i<GetAllData.length;i++){
+            TotalsPdfClicks+= GetAllData[i].lesson10.countPdfClicks;
+            TotalsVideoClicks+= GetAllData[i].lesson10.videoClicks;
+            TotalsBoardClicks+= GetAllData[i].lesson10.WhiteBoardClicks;
+            TotalTime+= GetAllData[i].lesson10.timeSpent;
+            TotalpageVisit+= GetAllData[i].lesson10.pageVisited;
+            
+        }
+    }
+    
+
+
+    res.sendStatus(200);  
+})
+
 router.get('/Analysis',isLoggedIn,async (req, res) => {
     
     res.render('Analysis');  
-})
-
-router.get('/Analysis/eachlesson',isLoggedIn,async (req, res) => {
-    
-    res.render('MoreAnalysis');  
 })
 
 
