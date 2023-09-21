@@ -1,91 +1,155 @@
 <% layout('./layouts/boilerplate')%>
+<!-- <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"> -->
+
 <section class="OverviewLessonSections">
 <%- include('./partials/Overview')%>
     
-    <section class="VisualizationGraphs">
-        <!-- <h4> Student Interactions for Goal Setting Lesson</h4> -->
-        <div>
-            
-            <canvas id="myChart" width="400" height ="400">  </canvas>
-        </div>
+    
+    <!-- <div>View Ananlytics for Each Lesson</div> -->
+    <!-- <div>View Ananlytics for Each Lesson</div> -->
+    <section class="lessonMetrics">
+      <h1>View Analytics for Each Lesson </h1>
+      <br>
+      <!-- <a href="/Analysis/eachlesson"> <div>Lesson 1 </div> </a>
+      <a href="/Analysis/eachlesson"> <div>Lesson 2 </div> </a>
+      <a href="/Analysis/eachlesson"> <div>Lesson 3 </div> </a>
+      <a href="/Analysis/eachlesson"> <div>Lesson 3 </div> </a>
+      <a href="/Analysis/eachlesson"> <div>Lesson 4 </div> </a>
+      <a href="/Analysis/eachlesson"> <div>Lesson 5 </div> </a>
+      <a href="/Analysis/eachlesson"> <div>Lesson 6 </div> </a>
+      <a href="/Analysis/eachlesson"> <div>Lesson 7 </div> </a>
+      <a href="/Analysis/eachlesson"> <div>Lesson 8 </div> </a>
+      <a href="/Analysis/eachlesson"> <div>Lesson 9 </div> </a>
+      <a href="/Analysis/eachlesson"> <div>Lesson 10 </div> </a> -->
+      
+      
+      <label for="lesson-select">Choose a lesson:</label>
+      <select class="lesson-select">
+        <!-- <option value="">Choose an option</option> -->
+        <option value="Nothig" ></option>
+        <option value="lesson1">Lesson 1</option>
+        <option value="Lesson2">Lesson 2</option>
+        <option value="Lesson3">Lesson 3</option>
+        <option value="Lesson4">Lesson 4</option>
+        <option value="Lesson5">Lesson 5</option>
+        <option value="Lesson6">Lesson 6</option>
+        <option value="Lesson7">Lesson 7</option>
+        <option value="Lesson8">Lesson 8</option>
+        <option value="Lesson9">Lesson 9</option>
+        <option value="Lesson10">Lesson 10</option>
+        
+      </select>
+      <br>
+      <br>
+      <button class="ShowCharts">Show</button>
 
-        <div>
-            <canvas id="myChart2" width="400" height ="400"></canvas>
-        </div>
-        <div>
-            <canvas id="myChart3" width="400" height ="400"></canvas>
-        </div>
+    
     </section>
+    <section class="VisualizationGraphs">
+      <!-- <h4> Student Interactions for Goal Setting Lesson</h4> -->
+      <div>
+          
+          <canvas id="myChart" width="400" height ="400">  </canvas>
+      </div>
+
+      <!-- <div>
+          <canvas id="myChart2" width="400" height ="400"></canvas>
+      </div>
+      <div>
+          <canvas id="myChart3" width="400" height ="400"></canvas>
+      </div> -->
+      
+      <div class="CardBox">
+        <div class="Inside">
+          <span class="Views">1,500<i class="fa-regular fa-eye"></i></span>
+        <br>
+        <span>Views</span>
+        
+        </div>
+        
+      </div>
+      <div class="CardBox">
+        <div class="Inside">
+          <span class="Views">40min<i class="fa-regular fa-clock"></i></span>
+        <br>
+        <span>TimeSpent </span>
+        </div>
+        
+      </div>
+
+  </section>
+
+  <!-- <script>
+    const ctx = document.getElementById('myChart2');
+  
+    new Chart(ctx, {
+      type: 'line',
+      data: {
+        labels: ['Video'],
+        datasets: [{
+          label: '# of Clicks',
+          data: [12],
+          borderWidth: 1
+        }]
+      },
+      options: {
+        scales: {
+          y: {
+            beginAtZero: true
+          }
+        }
+      }
+    });
+  </script> -->
+   
+   <script>
+    const ctx2 = document.getElementById('myChart');
+  
+    new Chart(ctx2, {
+      type: 'bar',
+      data: {
+        labels: ['Video', 'WhiteBoard', 'Chat', 'Resources'],
+        datasets: [{
+          label: '# of Clicks',
+          data: [12, 19, 3, 5],
+          borderWidth: 1
+        }]
+      },
+      options: {
+        scales: {
+          y: {
+            beginAtZero: true
+          }
+        }
+      }
+    });
+  </script>
+   <!-- <script>
+    const ctx3 = document.getElementById('myChart3');
+  
+    new Chart(ctx3, {
+      type: 'pie',
+      data: {
+        labels: ['Video', 'WhiteBoard', 'Chat', 'Resources'],
+        datasets: [{
+          label: '# of Clicks',
+          data: [12, 19, 3, 5],
+          borderWidth: 1
+        }]
+      },
+      options: {
+        scales: {
+          y: {
+            beginAtZero: true
+          }
+        }
+      }
+    });
+  </script> -->
+
     
-    
-    <script>
-        const ctx = document.getElementById('myChart2');
-      
-        new Chart(ctx, {
-          type: 'line',
-          data: {
-            labels: ['Video', 'WhiteBoard', 'Chat', 'Resource', 'Quiz', 'Other'],
-            datasets: [{
-              label: '# of Votes',
-              data: [12, 19, 3, 5, 2, 3],
-              borderWidth: 1
-            }]
-          },
-          options: {
-            scales: {
-              y: {
-                beginAtZero: true
-              }
-            }
-          }
-        });
-      </script>
-       
-       <script>
-        const ctx2 = document.getElementById('myChart');
-      
-        new Chart(ctx2, {
-          type: 'bar',
-          data: {
-            labels: ['Video', 'WhiteBoard', 'Chat', 'Resource', 'Quiz', 'Other'],
-            datasets: [{
-              label: '# of Votes',
-              data: [12, 19, 3, 5, 2, 3],
-              borderWidth: 1
-            }]
-          },
-          options: {
-            scales: {
-              y: {
-                beginAtZero: true
-              }
-            }
-          }
-        });
-      </script>
-       <script>
-        const ctx3 = document.getElementById('myChart3');
-      
-        new Chart(ctx3, {
-          type: 'pie',
-          data: {
-            labels: ['Video', 'WhiteBoard', 'Chat', 'Resource', 'Quiz', 'Other'],
-            datasets: [{
-              label: '# of Votes',
-              data: [12, 19, 3, 5, 2, 3],
-              borderWidth: 1
-            }]
-          },
-          options: {
-            scales: {
-              y: {
-                beginAtZero: true
-              }
-            }
-          }
-        });
-      </script>
 
 
 </section>
+<script src="/javascripts/DisplayCharts.js"></script>
 <script src="/javascripts/CollaspseMenu.js"></script>

@@ -5,15 +5,11 @@ const Metrics = require('../Models/MetricsModel');
 const passport = require('passport');
 const { render } = require('ejs');
 
-// const passport = require('passport');
-// const catchAsync = require('../utils/catchAsync');
-//const User = require('../models/user');
+
 const{isLoggedIn} = require('../Middleware');
-// const{totalTime} = require('../public/javascripts/CalcuLateTime.js');
+
 router.get('/', (req, res) => {
-    // const username = 'kwena';
-    // req.session.username  = 'kwena';
-    
+
     res.render('index');
 })
 
@@ -26,17 +22,6 @@ router.get('/SignUp', (req, res) => {
     
     res.render('SignUp');
 })
-// router.get('/LessonPage/content',isLoggedIn,async (req, res) => {
-  
-//     if (req.session.countVisitedSited) {
-//         req.session.countVisitedSited += 1;
-//     } else {
-//         req.session.countVisitedSited = 1;
-//     }
-//     console.log(`You have viewed this page ${req.session.countVisitedSited} times`);
-    
-//     return res.render('LessonPage2');
-// })
 
 router.get('/UserSection',isLoggedIn,async (req, res) => {
     
@@ -44,8 +29,7 @@ router.get('/UserSection',isLoggedIn,async (req, res) => {
 })
 
 router.post('/LogIn',passport.authenticate('local', { failureRedirect: '/LogIn',keepSessionInfo: true, failureMessage: true },),async (req, res) => {
-    // res.render('Mentee')
-    
+  
     const redirectUrl = req.session.returnTo || '/UserSection';
     
     delete req.session.returnTo;
@@ -70,15 +54,20 @@ router.post('/UpdateDateBase',async (req, res) => {
     const UpdateDateBase = async function (){
         
         await Mentee.updateMany({_id: req.user._id},{ $set: SetProperty1});
+        //await Metrics.updateMany({_id: req.user._id},{ $set: SetProperty1});
        
         if(ElementName==='pdFileClick'){
             await Mentee.updateMany({_id: req.user._id},{ $inc: SetProperty2});
+            //await Metrics.updateMany({_id: req.user._id},{ $inc: SetProperty2});
         }else if(ElementName==='VideoClick'){
             await Mentee.updateMany({_id: req.user._id},{ $inc: SetProperty3});
+            //await Metrics.updateMany({_id: req.user._id},{ $inc: SetProperty3});
         }else if(ElementName==='BoardClick'){
             await Mentee.updateMany({_id: req.user._id},{ $inc: SetProperty4});
+            //await Metrics.updateMany({_id: req.user._id},{ $inc: SetProperty4});
         }else if(ElementName==='beforeunload'){
             await Mentee.updateMany({_id: req.user._id},{ $inc: SetProperty5});
+            //await Metrics.updateMany({_id: req.user._id},{ $inc: SetProperty5});
         }
 
     };
@@ -149,12 +138,12 @@ router.post('/UpdateDateBase',async (req, res) => {
         SetProperty5 = {"lesson8.timeSpent":time};
         UpdateDateBase(pageVisited,1,SetProperty1,SetProperty2,SetProperty3,SetProperty4,SetProperty5);
     }else if(pageNumber==="page9"){
-        pageVisited = req.session.countVisitedSitedPage2;
-        SetProperty1 = {"lesson2.pageVisited":pageVisited}
-        SetProperty2 = {"lesson2.countPdfClicks":pdf};
-        SetProperty3 = {"lesson2.videoClicks":vid};
-        SetProperty4 = {"lesson2.WhiteBoardClicks":board};
-        SetProperty5 = {"lesson2.timeSpent":time};
+        pageVisited = req.session.countVisitedSitedPage9;
+        SetProperty1 = {"lesson9.pageVisited":pageVisited}
+        SetProperty2 = {"lesson9.countPdfClicks":pdf};
+        SetProperty3 = {"lesson9.videoClicks":vid};
+        SetProperty4 = {"lesson9.WhiteBoardClicks":board};
+        SetProperty5 = {"lesson9.timeSpent":time};
         UpdateDateBase(pageVisited,1,SetProperty1,SetProperty2,SetProperty3,SetProperty4,SetProperty5);
     }else if(pageNumber==="page10"){
         pageVisited = req.session.countVisitedSitedPage2;
@@ -204,9 +193,14 @@ router.get('/logout', function(req, res, next) {
     });
   });
 
-  router.get('/Analysis',isLoggedIn,async (req, res) => {
+router.get('/Analysis',isLoggedIn,async (req, res) => {
     
     res.render('Analysis');  
+})
+
+router.get('/Analysis/eachlesson',isLoggedIn,async (req, res) => {
+    
+    res.render('MoreAnalysis');  
 })
 
 
