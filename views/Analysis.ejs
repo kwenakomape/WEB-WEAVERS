@@ -7,28 +7,38 @@
     <section class="lessonMetrics">
       <h1>View Analytics for Each Lesson </h1>
       <br>
-      <label for="lesson-select">Choose a lesson:</label>
-      <select class="lesson-select">
-        <!-- <option value="">Choose an option</option> -->
-        <option value="Nothig" ></option>
-        <option value="lesson1">Lesson 1</option>
-        <option value="Lesson2">Lesson 2</option>
-        <option value="Lesson3">Lesson 3</option>
-        <option value="Lesson4">Lesson 4</option>
-        <option value="Lesson5">Lesson 5</option>
-        <option value="Lesson6">Lesson 6</option>
-        <option value="Lesson7">Lesson 7</option>
-        <option value="Lesson8">Lesson 8</option>
-        <option value="Lesson9">Lesson 9</option>
-        <option value="Lesson10">Lesson 10</option>
-        
-      </select>
-      <br>
-      <br>
-      <button class="ShowCharts">Show</button>
-
+      <form action="/Analysis" method="POST">
+        <label for="lesson-select">Choose a lesson:</label>
+        <select  name="LessonNumber" class="lesson-select">
+          <!-- <option value="">Choose an option</option> -->
+          <option value="Nothig" ></option>
+          <option value="lesson1">Lesson 1</option>
+          <option value="lesson2">Lesson 2</option>
+          <option value="lesson3">Lesson 3</option>
+          <option value="lesson4">Lesson 4</option>
+          <option value="lesson5">Lesson 5</option>
+          <option value="lesson6">Lesson 6</option>
+          <option value="lesson7">Lesson 7</option>
+          <option value="lesson8">Lesson 8</option>
+          <option value="lesson9">Lesson 9</option>
+          <option value="lesson10">Lesson 10</option>
+          
+        </select>
+        <br>
+        <br>
+       
+      
+          
+      
+      <button class="ShowCharts" >Show</button>
+      
+    </form>
+   
+     
     </section>
-    <!-- <section class="VisualizationGraphs">
+    
+  
+    <section class="VisualizationGraphs">
   
       <div>
           
@@ -37,7 +47,7 @@
       
       <div class="CardBox">
         <div class="Inside">
-          <span class="Views"><#%=pageVisited %><i class="fa-regular fa-eye"></i></span>
+          <span class="Views"><%=TotalpageVisit %><i class="fa-regular fa-eye"></i></span>
         <br>
         <span>Views</span>
         
@@ -46,7 +56,7 @@
       </div>
       <div class="CardBox">
         <div class="Inside">
-          <span class="Views"><#%=timeSpent%><i class="fa-regular fa-clock"></i></span>
+          <span class="Views"><%=TotalTime %><i class="fa-regular fa-clock"></i></span>
         <br>
         <span>TimeSpent </span>
         </div>
@@ -58,14 +68,16 @@
    
    <script>
     const ctx2 = document.getElementById('myChart');
-  
+    const TotalsVideoClicks = <%- JSON.stringify(TotalsVideoClicks) %>;
+    const TotalsBoardClicks = <%- JSON.stringify(TotalsBoardClicks) %>;
+    const countPdfClicks = <%- JSON.stringify(TotalsPdfClicks) %>;
     new Chart(ctx2, {
       type: 'bar',
       data: {
         labels: ['Video', 'WhiteBoard', 'Chat', 'Resources'],
         datasets: [{
           label: '# of Clicks',
-          data: [videoClicks, WhiteBoardClicks, 4, countPdfClicks],
+          data: [TotalsVideoClicks, TotalsBoardClicks, 0, countPdfClicks],
           borderWidth: 1
         }]
       },
@@ -77,7 +89,7 @@
         }
       }
     });
-  </script> -->
+  </script>
    <!-- <script>
     const ctx3 = document.getElementById('myChart3');
   

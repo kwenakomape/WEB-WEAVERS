@@ -194,9 +194,15 @@ router.get('/logout', function(req, res, next) {
   });
 
 router.post('/Analysis',isLoggedIn,async (req, res) => {
+    console.log(req.body);
+    
+    
+   
+    
     const GetAllData =  await Mentee.find({});
+    
     const {LessonNumber} = req.body;
-    // console.log(GetAllData[0]);
+
     TotalsPdfClicks = 0;
     TotalsVideoClicks = 0;
     TotalsBoardClicks = 0;
@@ -294,15 +300,28 @@ router.post('/Analysis',isLoggedIn,async (req, res) => {
             
         }
     }
-    
-
-
-    res.sendStatus(200);  
+    console.log(TotalsVideoClicks);
+    console.log(TotalsPdfClicks);
+    console.log(TotalsBoardClicks);
+    console.log(TotalTime);
+    console.log(TotalpageVisit);
+   
+    // name = 222;
+    // res.render('Analysis',{name});
+    // res.render('LogIn');
+    // name = 890;
+    // // res.redirect('/Analysis',{name});
+    // res.render('Analysis',{name});
+    res.render('Analysis',{TotalsPdfClicks,TotalsVideoClicks,TotalsBoardClicks,TotalTime,TotalpageVisit});  
 })
 
 router.get('/Analysis',isLoggedIn,async (req, res) => {
-    
-    res.render('Analysis');  
+    TotalsVideoClicks= 0;
+    TotalsPdfClicks =0;
+    TotalsBoardClicks=0;
+    TotalTime = 0;
+    TotalpageVisit =0;;
+    res.render('Analysis',{TotalsPdfClicks,TotalsVideoClicks,TotalsBoardClicks,TotalTime,TotalpageVisit});
 })
 
 

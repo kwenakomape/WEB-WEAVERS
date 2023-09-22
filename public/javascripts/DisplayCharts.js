@@ -22,7 +22,9 @@ ShowButton = document.querySelector('.ShowCharts');
 ShowButton.addEventListener("click", function(req, res) {
     
     LessonNumber = document.querySelector('.lesson-select').value;
-    SendToDataBase(LessonNumber);
+    
+    // onclick="location.href='/LessonPage/lesson10';"
+    // SendToDataBase(LessonNumber);
     // if(LessonOptions=="All"){
     //     console.log("hahaha");
     // }
@@ -30,20 +32,21 @@ ShowButton.addEventListener("click", function(req, res) {
 
 
 
-const SendToDataBase = async function (LessonNumber){
-    try {
-        let payload = {
-                    LessonNumber: LessonNumber,
-                    };
+// const SendToDataBase = async function (LessonNumber){
+//     try {
+//         let payload = {
+//                     LessonNumber: LessonNumber,
+//                     };
         
-                    let config = { headers: {'Content-Type': 'application/x-www-form-urlencoded',} }
+//                     let config = { headers: {'Content-Type': 'application/x-www-form-urlencoded',} }
 
-        const res = await axios.post(`http://localhost:3000/Analysis`,payload,config);
+//         const res = await axios.post(`http://localhost:3000/Analysis`,payload,config);
+//         console.log(res)
         
-    } catch (e) {
-        console.log("ERROR", e);
-    }
-};
+//     } catch (e) {
+//         console.log("ERROR", e);
+//     }
+// };
 
 
 
