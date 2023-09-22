@@ -138,7 +138,11 @@ nav{
     
 }
 .VisualizationGraphs{
-    justify-content: space-around;
+    /* justify-content: space-around; */
+    /* flex-direction: column; */
+    flex-wrap: wrap;
+    /* margin-top: 20px; */
+    
 }
 .lessonPageSection{
     margin-left: 40px;

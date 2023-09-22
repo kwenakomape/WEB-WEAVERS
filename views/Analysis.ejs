@@ -22,55 +22,75 @@
           <option value="lesson8">Lesson 8</option>
           <option value="lesson9">Lesson 9</option>
           <option value="lesson10">Lesson 10</option>
+          <option value="All">All</option>
           
         </select>
         <br>
         <br>
        
-      
-          
-      
       <button class="ShowCharts" >Show</button>
       
     </form>
-   
-     
+
     </section>
     
-  
     <section class="VisualizationGraphs">
-  
-      <div>
-          
-          <canvas id="myChart" width="400" height ="400">  </canvas>
-      </div>
       
-      <div class="CardBox">
-        <div class="Inside">
-          <span class="Views"><%=TotalpageVisit %><i class="fa-regular fa-eye"></i></span>
-        <br>
-        <span>Views</span>
+      <% if(LessonNumber!="All" && LessonNumber!="NOTHING"){ %>
         
+        <div>
+            
+            <canvas id="myChart" width="400" height ="400">  </canvas>
         </div>
         
-      </div>
-      <div class="CardBox">
-        <div class="Inside">
-          <span class="Views"><%=TotalTime %><i class="fa-regular fa-clock"></i></span>
-        <br>
-        <span>TimeSpent </span>
+        <div class="CardBox">
+          <div class="Inside">
+            <span class="Views"><%=TotalpageVisit %><i class="fa-regular fa-eye"></i></span>
+          <br>
+          <span>Views</span>
+          
+          </div>
+          
         </div>
-        
-      </div>
+        <div class="CardBox">
+          <div class="Inside">
+            <span class="Views"><%=TotalTime %><i class="fa-regular fa-clock"></i></span>
+          <br>
+          <span>TimeSpent </span>
+          </div>
+          
+        </div>
+    <% }else{%>
+         <div>
+            
+           <canvas id="myChart2" width="900" height ="500">  </canvas>
+         
+          </div>
 
+          <div>
+            
+            <canvas id="myChart4" width="900" height ="500">  </canvas>
+          
+          </div>
+
+          <div>
+            
+            <canvas id="myChart5" width="900" height ="500">  </canvas>
+          
+          </div>
+    <%} %>
   </section>
+  
+
 
    
    <script>
+ 
     const ctx2 = document.getElementById('myChart');
     const TotalsVideoClicks = <%- JSON.stringify(TotalsVideoClicks) %>;
     const TotalsBoardClicks = <%- JSON.stringify(TotalsBoardClicks) %>;
     const countPdfClicks = <%- JSON.stringify(TotalsPdfClicks) %>;
+    
     new Chart(ctx2, {
       type: 'bar',
       data: {
@@ -90,52 +110,143 @@
       }
     });
   </script>
-   <!-- <script>
-    const ctx3 = document.getElementById('myChart3');
-  
-    new Chart(ctx3, {
-      type: 'pie',
-      data: {
-        labels: ['Video', 'WhiteBoard', 'Chat', 'Resources'],
-        datasets: [{
-          label: '# of Clicks',
-          data: [12, 19, 3, 5],
-          borderWidth: 1
-        }]
-      },
-      options: {
-        scales: {
-          y: {
-            beginAtZero: true
+
+   <script>
+   
+   const LessonNumber = <%- JSON.stringify(LessonNumber) %>;
+
+    if(LessonNumber==="All"){
+      const ctx3 = document.getElementById('myChart2');
+      const ctx4 = document.getElementById('myChart4');
+      const ctx5 = document.getElementById('myChart5');
+      const CombinedPdfClicks = <%- JSON.stringify(CombinedPdfClicks) %>;
+      const CombinedVideoClicks = <%- JSON.stringify(CombinedVideoClicks) %>;
+      const CombinedBoardClicks = <%- JSON.stringify(CombinedBoardClicks) %>;
+      const CombinedTotalTime = <%- JSON.stringify(CombinedTotalTime) %>;
+      const CombinedTotalpageVisit = <%- JSON.stringify(CombinedTotalpageVisit) %>;
+      
+      
+      new Chart(ctx3, {
+        type: 'line',
+        data: {
+          labels: ['Lesson1','Lesson2','Lesson3','Lesson4','Lesson5','Lesson6','Lesson7','Lesson8','Lesson9','Lesson10'],
+          datasets: [{
+            label: 'Time Spent on Each Lesson',
+            data: [ CombinedTotalTime[0],
+                    CombinedTotalTime[1],
+                    CombinedTotalTime[2],
+                    CombinedTotalTime[3],
+                    CombinedTotalTime[4],
+                    CombinedTotalTime[5],
+                    CombinedTotalTime[6],
+                    CombinedTotalTime[7],
+                    CombinedTotalTime[8],
+                    CombinedTotalTime[9]],
+            borderWidth: 1
+          }]
+        },
+        options: {
+          scales: {
+            y: {
+              beginAtZero: true
+            }
           }
         }
-      }
-    });
-  </script> -->
+      });
 
-
-   <!-- <script>
-    const ctx = document.getElementById('myChart2');
-  
-    new Chart(ctx, {
-      type: 'line',
-      data: {
-        labels: ['Video'],
-        datasets: [{
-          label: '# of Clicks',
-          data: [12],
-          borderWidth: 1
-        }]
-      },
-      options: {
-        scales: {
-          y: {
-            beginAtZero: true
+      new Chart(ctx4, {
+        type: 'bar',
+        data: {
+          labels: ['Lesson1','Lesson2','Lesson3','Lesson4','Lesson5','Lesson6','Lesson7','Lesson8','Lesson9','Lesson10'],
+          datasets: [{
+            label: 'Count Page Visit for each lesson',
+            data: [CombinedTotalpageVisit[0],
+                    CombinedTotalpageVisit[1],
+                    CombinedTotalpageVisit[2],
+                    CombinedTotalpageVisit[3],
+                    CombinedTotalpageVisit[4],
+                    CombinedTotalpageVisit[5],
+                    CombinedTotalpageVisit[6],
+                    CombinedTotalpageVisit[7],
+                    CombinedTotalpageVisit[8],
+                    CombinedTotalpageVisit[9]],
+            borderWidth: 1
+          }]
+        },
+        options: {
+          scales: {
+            y: {
+              beginAtZero: true
+            }
           }
         }
-      }
-    });
-  </script> -->
+      });
+
+      new Chart(ctx5, {
+        type: 'bar',
+        data: {
+          labels: ['Lesson1','Lesson2','Lesson3','Lesson4','Lesson5','Lesson6','Lesson7','Lesson8','Lesson9','Lesson10'],
+          datasets: [
+        {
+            label: "CountPDFClicks",
+            // fillColor: "blue",
+            data: [ CombinedPdfClicks[0],
+                    CombinedPdfClicks[1],
+                    CombinedPdfClicks[2],
+                    CombinedPdfClicks[3],
+                    CombinedPdfClicks[4],
+                    CombinedPdfClicks[5],
+                    CombinedPdfClicks[6],
+                    CombinedPdfClicks[7],
+                    CombinedPdfClicks[8],
+                    CombinedPdfClicks[9]]
+        },
+        {
+            label: "Video Interaction",
+            // fillColor: "red",
+            data: [ CombinedVideoClicks[0],
+                    CombinedVideoClicks[1],
+                    CombinedVideoClicks[2],
+                    CombinedVideoClicks[3],
+                    CombinedVideoClicks[4],
+                    CombinedVideoClicks[5],
+                    CombinedVideoClicks[6],
+                    CombinedVideoClicks[7],
+                    CombinedVideoClicks[8],
+                    CombinedVideoClicks[9]]
+        },
+        {
+            label: "WhiteBoard Interaction",
+            // fillColor: "green",
+            data: [ CombinedBoardClicks[0],
+                    CombinedBoardClicks[1],
+                    CombinedBoardClicks[2],
+                    CombinedBoardClicks[3],
+                    CombinedBoardClicks[4],
+                    CombinedBoardClicks[5],
+                    CombinedBoardClicks[6],
+                    CombinedBoardClicks[7],
+                    CombinedBoardClicks[8],
+                    CombinedBoardClicks[9]]
+        }
+        
+         ]
+        },
+        options: {
+          scales: {
+            y: {
+              beginAtZero: true
+            }
+          }
+        }
+      });
+    
+    }
+    
+  </script>
+
+
+  
     
 
 
