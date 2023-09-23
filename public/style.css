@@ -271,6 +271,7 @@ nav{
     /* margin-left: 70px; */
     border: 2px solid rgb(212, 206, 206);
 }
+
 .chatSection{
     display: flex;
     width: 640px;
@@ -278,23 +279,24 @@ nav{
     justify-content: space-between;
     flex-direction: column;
     background: #f5f5f5;
-
-    
-    
-    /* to be removed */
-    margin-left: 5px;  
-    /* display: flex;
-    border: 2px solid rgb(92, 79, 79);
-    width: 100%; */
-    /* flex-direction: column; */
-    /* justify-content: flex-start; */
-    
-    
     
 }
-.chatSection{
+.chatSection,.setChatAppNone{
     display: none;
 }
+
+.setSection{
+    display: flex;
+    width: 640px;
+    border: 2px solid rgb(212, 206, 206);
+    justify-content: space-between;
+    flex-direction: column;
+    background: #f5f5f5;
+    
+}
+
+
+
 
 .ChatNavBar{
     display: flex;
@@ -336,7 +338,6 @@ nav{
     height: 50px;
     width: 100%;
     border: 2px solid rgba(17, 17, 17, 0.863);
-    font-size: 18px;
 }
 
 .SendButton,ClickExit{
@@ -349,10 +350,9 @@ nav{
     width: 100px;
     margin:  12px;
 
- }
+ }  
 
 
 
- 
 
 

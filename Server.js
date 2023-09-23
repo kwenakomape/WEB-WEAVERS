@@ -108,6 +108,6 @@ app.use('/',LessonPagesRoutes)
 
 
 server.listen(3000,() =>{
-    console.log("Server running... for");
+    console.log("Server running...");
 })
 
