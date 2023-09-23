@@ -1,5 +1,5 @@
 const express = require("express");
-const app = express();
+
 const path = require('path');
 const mongoose = require('mongoose');
 const ejsMate = require('ejs-mate');
@@ -10,8 +10,13 @@ const MongoDBStore = require("connect-mongo")(session);
 const cookiepaerser = require('cookie-parser');
 const flash = require('connect-flash');
 
-const server = require("http").createServer(app);
-const io = require("socket.io")(server);
+// const server = require("http").createServer(app);
+// const io = require("socket.io")(server);
+const { createServer } = require('node:http');
+const { Server } = require('socket.io');
+const app = express();
+const server = createServer(app);
+const io = new Server(server);
 
 io.on("connection", function(socket){
 	socket.on("newuser",function(username){

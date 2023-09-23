@@ -41,7 +41,8 @@
                     <div class="chatRoomTitle" >ChatRoom </div>
                     <button class="ExitButton" id="ClickExit" >Exit</button>
                 </div>
-                
+                <div class="messages">
+                </div>
                 <div class="TextandSend">
                     <!-- <textarea name="UserTextArea" id="Message" cols="30" rows="10"></textarea> -->
                     <input type="text" id="message-input">
@@ -81,9 +82,13 @@
     </div>
 </Section>
 </section>
+<script src="/socket.io/socket.io.js"></script>
+<!-- <script>
+  const socket = io();
+</script> -->
 <script src="/javascripts/CollaspseMenu.js"></script>
 <script src="/javascripts/Metrics.js"></script>
-<script type="text/javascript" src="socket.io/socket.io.js"></script>
+
 <script src="/javascripts/ChatROOM.js"></script>
 
 
