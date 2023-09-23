@@ -194,11 +194,8 @@ router.get('/logout', function(req, res, next) {
   });
 
 router.post('/Analysis',isLoggedIn,async (req, res) => {
-    console.log(req.body);
     
-    
-   
-    
+ 
     const GetAllData =  await Mentee.find({});
     
     const {LessonNumber} = req.body;
@@ -209,110 +206,59 @@ router.post('/Analysis',isLoggedIn,async (req, res) => {
     TotalTime = 0;
     TotalpageVisit = 0;
 
-    if(LessonNumber==="lesson1"){
-        for(let i=0;i<GetAllData.length;i++){
-            TotalsPdfClicks+= GetAllData[i].lesson1.countPdfClicks;
-            TotalsVideoClicks+= GetAllData[i].lesson1.videoClicks;
-            TotalsBoardClicks+= GetAllData[i].lesson1.WhiteBoardClicks;
-            TotalTime+= GetAllData[i].lesson1.timeSpent;
-            TotalpageVisit+= GetAllData[i].lesson1.pageVisited;
-            
+
+
+    CombinedLessons = ['lesson1','lesson2','lesson3','lesson4','lesson5','lesson6','lesson7','lesson8','lesson9','lesson10'];
+    CombinedPdfClicks = [];
+    CombinedVideoClicks = [];
+    CombinedBoardClicks = [];
+    CombinedTotalTime = [];
+    CombinedTotalpageVisit = [];
+    
+    if(LessonNumber==="All"){
+        for(let i=0;i<CombinedLessons.length;i++){
+            for(let j=0;j<GetAllData.length;j++){
+
+                TotalsPdfClicks+= GetAllData[j][CombinedLessons[i]].countPdfClicks;
+                TotalsVideoClicks+= GetAllData[j][CombinedLessons[i]].videoClicks;
+                TotalsBoardClicks+= GetAllData[j][CombinedLessons[i]].WhiteBoardClicks;
+                TotalTime+= (GetAllData[j][CombinedLessons[i]].timeSpent);
+                TotalpageVisit+= GetAllData[j][CombinedLessons[i]].pageVisited;
+                
+            }
+            CombinedPdfClicks.push(TotalsPdfClicks);
+            CombinedVideoClicks.push(TotalsVideoClicks);
+            CombinedBoardClicks.push(TotalsBoardClicks);
+            CombinedTotalTime.push(TotalTime);
+            CombinedTotalpageVisit.push(TotalpageVisit);
+
+            TotalsPdfClicks = 0;
+            TotalsVideoClicks = 0;
+            TotalsBoardClicks = 0;
+            TotalTime = 0;
+            TotalpageVisit = 0;
+
         }
-    }else if(LessonNumber==="lesson2"){
-        for(let i=0;i<GetAllData.length;i++){
-            TotalsPdfClicks+= GetAllData[i].lesson2.countPdfClicks;
-            TotalsVideoClicks+= GetAllData[i].lesson2.videoClicks;
-            TotalsBoardClicks+= GetAllData[i].lesson2.WhiteBoardClicks;
-            TotalTime+= GetAllData[i].lesson2.timeSpent;
-            TotalpageVisit+= GetAllData[i].lesson2.pageVisited;
-            
-        }
-    }else if(LessonNumber==="lesson3"){
-        for(let i=0;i<GetAllData.length;i++){
-            TotalsPdfClicks+= GetAllData[i].lesson3.countPdfClicks;
-            TotalsVideoClicks+= GetAllData[i].lesson3.videoClicks;
-            TotalsBoardClicks+= GetAllData[i].lesson3.WhiteBoardClicks;
-            TotalTime+= GetAllData[i].lesson3.timeSpent;
-            TotalpageVisit+= GetAllData[i].lesson3.pageVisited;
-            
-        }
-    }else if(LessonNumber==="lesson4"){
-        for(let i=0;i<GetAllData.length;i++){
-            TotalsPdfClicks+= GetAllData[i].lesson4.countPdfClicks;
-            TotalsVideoClicks+= GetAllData[i].lesson4.videoClicks;
-            TotalsBoardClicks+= GetAllData[i].lesson4.WhiteBoardClicks;
-            TotalTime+= GetAllData[i].lesson4.timeSpent;
-            TotalpageVisit+= GetAllData[i].lesson4.pageVisited;
-            
-        }
-    }else if(LessonNumber==="lesson5"){
-        for(let i=0;i<GetAllData.length;i++){
-            TotalsPdfClicks+= GetAllData[i].lesson5.countPdfClicks;
-            TotalsVideoClicks+= GetAllData[i].lesson5.videoClicks;
-            TotalsBoardClicks+= GetAllData[i].lesson5.WhiteBoardClicks;
-            TotalTime+= GetAllData[i].lesson5.timeSpent;
-            TotalpageVisit+= GetAllData[i].lesson5.pageVisited;
-            
-        }
-    }else if(LessonNumber==="lesson6"){
-        for(let i=0;i<GetAllData.length;i++){
-            TotalsPdfClicks+= GetAllData[i].lesson6.countPdfClicks;
-            TotalsVideoClicks+= GetAllData[i].lesson6.videoClicks;
-            TotalsBoardClicks+= GetAllData[i].lesson6.WhiteBoardClicks;
-            TotalTime+= GetAllData[i].lesson6.timeSpent;
-            TotalpageVisit+= GetAllData[i].lesson6.pageVisited;
-            
-        }
-    }else if(LessonNumber==="lesson7"){
-        for(let i=0;i<GetAllData.length;i++){
-            TotalsPdfClicks+= GetAllData[i].lesson7.countPdfClicks;
-            TotalsVideoClicks+= GetAllData[i].lesson7.videoClicks;
-            TotalsBoardClicks+= GetAllData[i].lesson7.WhiteBoardClicks;
-            TotalTime+= GetAllData[i].lesson7.timeSpent;
-            TotalpageVisit+= GetAllData[i].lesson7.pageVisited;
-            
-        }
-    }else if(LessonNumber==="lesson8"){
-        for(let i=0;i<GetAllData.length;i++){
-            TotalsPdfClicks+= GetAllData[i].lesson8.countPdfClicks;
-            TotalsVideoClicks+= GetAllData[i].lesson8.videoClicks;
-            TotalsBoardClicks+= GetAllData[i].lesson8.WhiteBoardClicks;
-            TotalTime+= GetAllData[i].lesson8.timeSpent;
-            TotalpageVisit+= GetAllData[i].lesson8.pageVisited;
-            
-        }
-    }else if(LessonNumber==="lesson9"){
-        for(let i=0;i<GetAllData.length;i++){
-            TotalsPdfClicks+= GetAllData[i].lesson9.countPdfClicks;
-            TotalsVideoClicks+= GetAllData[i].lesson9.videoClicks;
-            TotalsBoardClicks+= GetAllData[i].lesson9.WhiteBoardClicks;
-            TotalTime+= GetAllData[i].lesson9.timeSpent;
-            TotalpageVisit+= GetAllData[i].lesson9.pageVisited;
-            
-        }
-    }else if(LessonNumber==="lesson10"){
-        for(let i=0;i<GetAllData.length;i++){
-            TotalsPdfClicks+= GetAllData[i].lesson10.countPdfClicks;
-            TotalsVideoClicks+= GetAllData[i].lesson10.videoClicks;
-            TotalsBoardClicks+= GetAllData[i].lesson10.WhiteBoardClicks;
-            TotalTime+= GetAllData[i].lesson10.timeSpent;
-            TotalpageVisit+= GetAllData[i].lesson10.pageVisited;
-            
-        }
-    }
-    console.log(TotalsVideoClicks);
-    console.log(TotalsPdfClicks);
-    console.log(TotalsBoardClicks);
-    console.log(TotalTime);
-    console.log(TotalpageVisit);
+
    
-    // name = 222;
-    // res.render('Analysis',{name});
-    // res.render('LogIn');
-    // name = 890;
-    // // res.redirect('/Analysis',{name});
-    // res.render('Analysis',{name});
-    res.render('Analysis',{TotalsPdfClicks,TotalsVideoClicks,TotalsBoardClicks,TotalTime,TotalpageVisit});  
+        
+        return res.render('Analysis',{CombinedPdfClicks,CombinedVideoClicks,CombinedBoardClicks,CombinedTotalTime,CombinedTotalpageVisit,LessonNumber});
+
+
+        
+    }else{
+        for(let i=0;i<GetAllData.length;i++){
+            TotalsPdfClicks+= GetAllData[i][LessonNumber].countPdfClicks;
+            TotalsVideoClicks+= GetAllData[i][LessonNumber].videoClicks;
+            TotalsBoardClicks+= GetAllData[i][LessonNumber].WhiteBoardClicks;
+            TotalTime+= GetAllData[i][LessonNumber].timeSpent;
+            TotalpageVisit+= GetAllData[i][LessonNumber].pageVisited;
+            
+        }
+    }  
+    TotalTime = TotalTime.toFixed(2);
+   
+    return res.render('Analysis',{TotalsPdfClicks,TotalsVideoClicks,TotalsBoardClicks,TotalTime,TotalpageVisit,LessonNumber});  
 })
 
 router.get('/Analysis',isLoggedIn,async (req, res) => {
@@ -320,8 +266,14 @@ router.get('/Analysis',isLoggedIn,async (req, res) => {
     TotalsPdfClicks =0;
     TotalsBoardClicks=0;
     TotalTime = 0;
-    TotalpageVisit =0;;
-    res.render('Analysis',{TotalsPdfClicks,TotalsVideoClicks,TotalsBoardClicks,TotalTime,TotalpageVisit});
+    TotalpageVisit =0;
+    LessonNumber = "NOTHING";
+    CombinedPdfClicks = [];
+    CombinedVideoClicks =[];
+    CombinedBoardClicks =[];
+    CombinedTotalTime = [];
+    CombinedTotalpageVisit =[];
+    res.render('Analysis',{TotalsPdfClicks,TotalsVideoClicks,TotalsBoardClicks,TotalTime,TotalpageVisit,LessonNumber});
 })
 
 

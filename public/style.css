@@ -8,7 +8,8 @@
 
 body{
    
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: Arial, Helvetica, sans-serif; */
+    /* font-family: "Roboto",sans-serif; */
     transition-duration: 9s;
 }
 nav{
@@ -138,14 +139,18 @@ nav{
     
 }
 .VisualizationGraphs{
-    justify-content: space-around;
+    /* justify-content: space-around; */
+    /* flex-direction: column; */
+    flex-wrap: wrap;
+    /* margin-top: 20px; */
+    
 }
 .lessonPageSection{
     margin-left: 40px;
     margin-top: 20px;
 }
 .lessonPageSection p{
-    width: 40%;
+    width: 80%;
     margin-top: 4px;
     margin-bottom: 8px;
 }
@@ -248,5 +253,151 @@ nav{
 
 
 /* cursor: pointer; */
+
+.DisplayFlex{
+    display: flex;
+
+}
+
+.DescriptionAndVideo{
+    width: 50%;
+}
+.chatApplication{
+    display: flex;
+    width: 640px;
+    align-items: center;
+    justify-content: space-around;
+    /* height: 350px; */
+    /* margin-left: 70px; */
+    border: 2px solid rgb(212, 206, 206);
+}
+
+.chatSection{
+    display: flex;
+    width: 640px;
+    border: 2px solid rgb(212, 206, 206);
+    justify-content: space-between;
+    flex-direction: column;
+    background: #f5f5f5;
+    
+}
+.chatSection,.setChatAppNone{
+    display: none;
+}
+.setSectiontoNone{
+    display: none;
+}
+
+.setSection{
+    display: flex;
+    width: 640px;
+    border: 2px solid rgb(212, 206, 206);
+    justify-content: space-between;
+    flex-direction: column;
+    background: #f5f5f5;
+    
+}
+
+
+
+
+.ChatNavBar{
+    display: flex;
+    
+    justify-content: space-between;
+    background-color: rgba(17, 17, 17, 0.836);
+    width: 100%;
+    height: 60px;
+    color: whitesmoke;
+    text-decoration: solid;
+
+}
+.chatRoomTitle, .ExitButton{
+   
+    /* color: red; */
+    /* text-decoration: line-through; */
+    padding: 15px;
+    
+}
+
+
+.ChatNavBar{
+    display: flex;
+    
+    justify-content: space-between;
+    /* background-color: rgba(17, 17, 17, 0.836); */
+    width: 100%;
+    height: 60px;
+    /* color: whitesmoke; */
+    /* text-decoration: solid; */
+
+}
+.TextandSend{
+    display: flex;
+    width: 100%;
+    /* justify-content: space-between; */
+}
+#message-input{
+    height: 50px;
+    width: 100%;
+    border: 2px solid rgba(17, 17, 17, 0.863);
+}
+
+.SendButton,ClickExit{
+    width: 20%;
+    cursor: pointer;
+}
+
+#ClickExit{
+    /* width: 100%; */
+    width: 100px;
+    margin:  12px;
+
+ }
+
+
+ .messages {
+	width: 100%;
+	height: calc(100% - 100px);
+	background: #f5f5f5;
+	overflow: auto;
+}
+.messages .message {
+	display: flex;
+	padding: 10px;
+}
+.messages .message > div {
+	max-width: 80%;
+	background: #fff;
+	box-shadow: 0px 0px 20px 5px rgba(0,0,0,0.05);
+	padding: 10px;
+}
+.messages .message.my-message {
+	justify-content: flex-end;
+}
+.messages .message.other-message {
+	justify-content: flex-start;
+}
+.messages .message .name {
+	font-size: 13px;
+	color: #555;
+	margin-bottom: 5px;
+}
+.messages .message .text {
+	word-wrap: break-word;
+}
+.messages .update {
+	text-align: center;
+	padding: 10px;
+	font-style: italic;
+}
+
+#message-input{
+    
+    font-size: 20px;
+}
+
+
+
 
 
