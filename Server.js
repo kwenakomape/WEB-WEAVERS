@@ -9,8 +9,25 @@ const LocalStrategy = require('passport-local');
 const MongoDBStore = require("connect-mongo")(session);
 const cookiepaerser = require('cookie-parser');
 const flash = require('connect-flash');
-const cors = require('cors');
-app.use(cors())
+
+const server = require("http").createServer(app);
+const io = require("socket.io")(server);
+
+io.on("connection", function(socket){
+	socket.on("newuser",function(username){
+		socket.broadcast.emit("update", username + " joined the conversation");
+	});
+	socket.on("exituser",function(username){
+		socket.broadcast.emit("update", username + " left the conversation");
+	});
+	socket.on("chat",function(message){
+		socket.broadcast.emit("chat", message);
+	});
+});
+
+
+// const cors = require('cors');
+// app.use(cors())
 
 
 const dbUrl = process.env.DB_URL || 'mongodb://0.0.0.0:27017/WebWeaversData';
@@ -90,7 +107,7 @@ app.use('/',UserRoutes)
 app.use('/',LessonPagesRoutes)
 
 
-app.listen(3000,() =>{
-    console.log("Server running...");
+server.listen(3000,() =>{
+    console.log("Server running... for");
 })
 

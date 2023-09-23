@@ -194,11 +194,8 @@ router.get('/logout', function(req, res, next) {
   });
 
 router.post('/Analysis',isLoggedIn,async (req, res) => {
-    console.log(req.body);
     
-    
-   
-    
+ 
     const GetAllData =  await Mentee.find({});
     
     const {LessonNumber} = req.body;
@@ -209,11 +206,7 @@ router.post('/Analysis',isLoggedIn,async (req, res) => {
     TotalTime = 0;
     TotalpageVisit = 0;
 
-    // TotalsPdfClicksForEach = 0;
-    // TotalsVideoClicksForEach  = 0;
-    // TotalsBoardClicksForEach  = 0;
-    // TotalTimeForEach  = 0;
-    // TotalpageVisitForEach  = 0;
+
 
     CombinedLessons = ['lesson1','lesson2','lesson3','lesson4','lesson5','lesson6','lesson7','lesson8','lesson9','lesson10'];
     CombinedPdfClicks = [];
