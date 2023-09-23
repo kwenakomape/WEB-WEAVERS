@@ -1,4 +1,4 @@
-const DisplayChatRoom = document.querySelector(".DisplayFlex");
+
 (function(){
     // console.log("Hello..");
     // const DisplayChatRoom = document.querySelector(".DisplayFlex");
@@ -13,6 +13,7 @@ const DisplayChatRoom = document.querySelector(".DisplayFlex");
     SendButton = document.querySelector(".SendButton")
     
     JoinButton.addEventListener("click", function() {
+        socket.emit("newuser","Kwena");
         document.querySelector(".chatApplication").classList.add("setChatAppNone");
         
         
@@ -21,6 +22,7 @@ const DisplayChatRoom = document.querySelector(".DisplayFlex");
     ;})
 
     ExitButton.addEventListener("click", function() {
+        socket.emit("exituser","kwena");
         document.querySelector(".chatSection").classList.remove("setSection");
         console.log("hello")
         document.querySelector(".chatApplication").classList.remove("setChatAppNone");
@@ -34,6 +36,7 @@ const DisplayChatRoom = document.querySelector(".DisplayFlex");
         let Usermessage = document.querySelector("#message-input").value;
         console.log(Usermessage);
 		
+
         if(Usermessage.length  == 0){
 			return;
 		}
