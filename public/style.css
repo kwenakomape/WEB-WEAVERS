@@ -284,6 +284,9 @@ nav{
 .chatSection,.setChatAppNone{
     display: none;
 }
+.setSectiontoNone{
+    display: none;
+}
 
 .setSection{
     display: flex;

@@ -12,10 +12,17 @@ const DisplayChatRoom = document.querySelector(".DisplayFlex");
         
         
         document.querySelector(".chatSection").classList.add("setSection");
-		
-     
-        
+		   
     ;})
+
+    ExitButton.addEventListener("click", function() {
+        document.querySelector(".chatSection").classList.remove("setSection");
+        console.log("hello")
+        document.querySelector(".chatApplication").classList.remove("setChatAppNone");
+           
+    ;})
+
+    
 
 
 })();
