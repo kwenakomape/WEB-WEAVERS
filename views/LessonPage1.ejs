@@ -25,16 +25,16 @@
         <br>
         <br>
         <h2>Whiteboard: Goal Setting</h2>
-        
+      
         <p>Please add your thoughts to this weeks whiteboard</p>
         
-            <div class="whiteboardApi" style="width: 1200px; height: 700px;" id="wt-container"></div>
+            <div class="whiteboardApi" style="width: 1200px; height: 700px; border: 30px" id="wt-container"></div>
         
             <script src="https://www.whiteboard.team/dist/api.js"></script>
             <script type="text/javascript">
                 var wt = new api.WhiteboardTeam('#wt-container', {
                     clientId: '8fa29ad3d03237f44d2d90b45716eb33',
-                    boardCode: 'testmentknow123',
+                    boardCode: 'mentknow_goalsetting',
                     participant: {name:"<%=currentUser.username%>"}
                 });
             </script>
