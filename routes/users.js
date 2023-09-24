@@ -6,6 +6,101 @@ const passport = require('passport');
 const { render } = require('ejs');
 
 
+const multer = require('multer');
+const fs = require('fs');
+const { promisify } = require('util');
+const writeFileAsync = promisify(fs.writeFile);
+const path = require('path');
+
+// Configure multer to handle file uploads
+const storage = multer.memoryStorage();
+const upload = multer({ storage: storage });
+
+// Define a variable to track whether the file is processed
+let fileProcessed = false;
+
+// ...
+
+// Create a route to render the EJS template with the file upload form
+router.get('/report', (req, res) => {
+    res.render('Report', { fileProcessed });
+});
+
+// Create a route to handle file uploads
+router.post('/processFile', upload.single('textFile'), async (req, res) => {
+    try {
+        const textData = req.file.buffer.toString(); // Process the file here
+
+        // Use the groupSubjects function to group subjects in the text data
+        const groupedSubjects = groupSubjectsFromText(textData);
+
+        // Specify the output file path
+        const outputFileName = path.join('./downloads', 'output.txt'); // Adjust the path as needed
+
+        // Write the processed data to the output file
+        writeProcessedDataToFile(groupedSubjects, outputFileName);
+
+        // Set the fileProcessed variable to true
+        fileProcessed = true;
+
+        // Redirect back to the report page
+        res.redirect('/report');
+    } catch (error) {
+        console.error(error);
+        res.status(500).send('Error processing the file.');
+    }
+});
+
+
+function groupSubjectsFromText(textData) {
+    const subjects = {};
+    let currentSubject = null;
+    const lines = textData.split('\n');
+
+    for (const line of lines) {
+        const trimmedLine = line.trim();
+        if (trimmedLine.startsWith("Subject:")) {
+            currentSubject = trimmedLine.substring(8);
+            if (!(currentSubject in subjects)) {
+                subjects[currentSubject] = [];
+            }
+        } else if (trimmedLine === '---') {
+            currentSubject = null;
+        } else if (currentSubject) {
+            subjects[currentSubject].push(trimmedLine);
+        }
+    }
+
+    return subjects;
+}
+
+// Function to write the processed data to the output file
+function writeProcessedDataToFile(groupedSubjects, outputFileName) {
+    fs.writeFileSync(outputFileName, ''); // Clear the output file
+
+    for (const subject in groupedSubjects) {
+        fs.appendFileSync(outputFileName, "Subject: " + subject + "\n");
+        const paragraphs = groupedSubjects[subject];
+        for (const paragraph of paragraphs) {
+            fs.appendFileSync(outputFileName, paragraph + "\n");
+        }
+        fs.appendFileSync(outputFileName, "---\n");
+    }
+}
+
+router.get('/download/:fileName', (req, res) => {
+    const fileName = req.params.fileName;
+    const filePath = path.join('./downloads', fileName);
+
+    // Use the "res.download" method to send the file for download
+    res.download(filePath, (err) => {
+        if (err) {
+            // Handle any errors that occur during download
+            console.error(err);
+            res.status(500).send('Error downloading the file.');
+        }
+    });
+});
 const{isLoggedIn} = require('../Middleware');
 
 router.get('/', (req, res) => {
@@ -16,6 +111,11 @@ router.get('/', (req, res) => {
 router.get('/LogIn', (req, res) => {
     
     res.render('LogIn');
+})
+
+router.get('/Report', (req, res) => {
+    
+    res.render('Report');
 })
 router.get('/SignUp', (req, res) => {
     // req.flash('success','Successfully registered');
@@ -28,7 +128,10 @@ router.get('/SectionInfo/MentorshipSession',isLoggedIn,async (req, res) => {
     
     res.render('SectionInfo');   
 })
-
+router.get('/viewAllboards',isLoggedIn,async (req, res) => {
+    
+    res.render('Allboards');   
+})
 router.get('/UserSection',isLoggedIn,async (req, res) => {
     
     // res.render('Mentee');
