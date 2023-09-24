@@ -111,6 +111,17 @@
             participant: {name:"<%=currentUser.username%>"}
         });
     </script>
+
+<div class="whiteboardApi" style="width: 1200px; height: 700px; border:30px;" id="wt-container"></div>
+        
+<script src="https://www.whiteboard.team/dist/api.js"></script>
+<script type="text/javascript">
+    var wt = new api.WhiteboardTeam('#wt-container', {
+        clientId: '8fa29ad3d03237f44d2d90b45716eb33',
+        boardCode: 'mentknow_avoidprocrastination',
+        participant: {name:"<%=currentUser.username%>"}
+    });
+</script>
 </section>
 </section>
 </div>
