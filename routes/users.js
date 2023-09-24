@@ -23,6 +23,12 @@ router.get('/SignUp', (req, res) => {
     res.render('SignUp');
 })
 
+router.get('/SectionInfo/MentorshipSession',isLoggedIn,async (req, res) => {
+    
+    
+    res.render('SectionInfo');   
+})
+
 router.get('/UserSection',isLoggedIn,async (req, res) => {
     
     // res.render('Mentee');
