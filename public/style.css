@@ -396,6 +396,30 @@ nav{
     
     font-size: 20px;
 }
+.OverviewDeatils{
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    /* justify-content: center; */
+    align-items: center ;
+    margin: 30px;
+    padding-left: 50px;
+    padding-right: 100px;
+
+}
+
+/* .OverviewDescription p{
+    width: 50%;
+} */
+
+.OverviewImage{
+    /* width: 50%; */
+    /* height: 50%; */
+    /* margin-left: 30px; */
+    /* padding-left: 30px; */
+}
+
+
 
 
 

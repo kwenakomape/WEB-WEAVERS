@@ -25,7 +25,8 @@ router.get('/SignUp', (req, res) => {
 
 router.get('/UserSection',isLoggedIn,async (req, res) => {
     
-    res.render('Mentee');   
+    // res.render('Mentee');
+    res.render('UserOverview');   
 })
 
 router.post('/LogIn',passport.authenticate('local', { failureRedirect: '/LogIn',keepSessionInfo: true, failureMessage: true },),async (req, res) => {
@@ -180,7 +181,7 @@ router.post('/Register', async (req, res) => {
     const registerUser = await Mentee.register(newUser,password);
     req.login(registerUser, function(err) {
         if (err) { return next(err); }
-        return res.redirect('/UserSection');
+        return res.redirect('/UserOverview');
       });
 })
 
