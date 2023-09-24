@@ -2,6 +2,7 @@
 var coll = document.querySelectorAll("#lessons");
 JoinLink = document.querySelector(".JoinLink");
 JoinLink2 = document.querySelector(".JoinLink2");
+JoinLink3 = document.querySelector(".JoinLink3");
 
 
 
@@ -36,6 +37,15 @@ JoinLink2.addEventListener("click", function(event) {
   event.preventDefault();
   JoinLink2.innerHTML = "Member";
   JoinLink2.style.textDecoration = "none";
+  
+
+});
+
+JoinLink3.addEventListener("click", function(event) {
+
+  event.preventDefault();
+  JoinLink3.innerHTML = "Member";
+  JoinLink3.style.textDecoration = "none";
   
 
 });
