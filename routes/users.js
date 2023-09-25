@@ -1,12 +1,13 @@
 const express = require('express');
 const router = express.Router();
 const Mentee = require('../Models/MenteeModel');
-const Metrics = require('../Models/MetricsModel');
+// const Metrics = require('../Models/MetricsModel');
 const passport = require('passport');
 const { render } = require('ejs');
 
 
 const{isLoggedIn} = require('../Middleware');
+const{isMentorOrCoordinator} = require('../Middleware');
 
 router.get('/', (req, res) => {
 
@@ -34,6 +35,11 @@ router.get('/UserSection',isLoggedIn,async (req, res) => {
     // res.render('Mentee');
     res.render('UserOverview');   
 })
+// router.get('/UserSection/StaffView',async (req, res) => {
+    
+//     // res.render('Mentee');
+//     res.render('UserOverview');   
+// })
 
 router.post('/LogIn',passport.authenticate('local', { failureRedirect: '/LogIn',keepSessionInfo: true, failureMessage: true },),async (req, res) => {
   
@@ -46,7 +52,7 @@ router.post('/LogIn',passport.authenticate('local', { failureRedirect: '/LogIn',
 })
 
 
-router.post('/UpdateDateBase',async (req, res) => {
+router.post('/UpdateDateBase',isLoggedIn,async (req, res) => {
     
     const {pageNumber,countPdfClicks,videoClicks,timeSpent,WhiteBoardClicks,ElementName} = req.body;
     
@@ -180,14 +186,27 @@ router.post('/Register', async (req, res) => {
     lesson9 = {countPdfClicks: 0,videoClicks: 0,WhiteBoardClicks: 0,timeSpent: 0,pageVisited: 0};
     lesson10 = {countPdfClicks: 0,videoClicks: 0,WhiteBoardClicks: 0,timeSpent: 0,pageVisited: 0};
 
-    const {username,Surname,password,StudentID,Email} = req.body;
-    const newUser = new Mentee({username,Surname,StudentID,Email,
-                                lesson1,lesson2,lesson3,lesson4,lesson5,
-                                lesson6,lesson7,lesson8,lesson9,lesson10});
+    // const {username,Surname,password,StudentID,Email} = req.body;
+    // const newUser = new Mentee({username,Surname,StudentID,Email,
+    //                             lesson1,lesson2,lesson3,lesson4,lesson5,
+    //                             lesson6,lesson7,lesson8,lesson9,lesson10});
+  
+    const {username,Name,Surname,password,Email} = req.body;
+    
+    Role = "Student";
+
+    if(password=="UCT07"){
+        Role = "Coordinator";
+    }
+
+    const newUser = new Mentee({username,Surname,Email,Name,Role,
+        lesson1,lesson2,lesson3,lesson4,lesson5,
+        lesson6,lesson7,lesson8,lesson9,lesson10})
+
     const registerUser = await Mentee.register(newUser,password);
     req.login(registerUser, function(err) {
         if (err) { return next(err); }
-        return res.redirect('/UserOverview');
+        return res.redirect('/UserSection');
       });
 })
 
