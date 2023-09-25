@@ -10,7 +10,8 @@ body{
    
     font-family: Arial, Helvetica, sans-serif;
     /* font-family: "Roboto",sans-serif; */
-    transition-duration: 9s;
+    transition-duration: 3s;
+    
 }
 nav{
     background-color:#155a7e;
@@ -21,7 +22,17 @@ nav{
 }
 
 .Homepage{
-    padding: 20px;
+    /* padding: 20px; */
+    /* height: 100vh; */
+    /* background-image: url("/photos/priscilla-du-preez-XkKCui44iM0-unsplash.jpg"); */
+    /* background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url("https://images.unsplash.com/photo-1523240795612-9a054b0db644?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=870&q=80"); */
+    /* background-size: cover; */
+    /* background-position: center; */
+    /* text-shadow: 0 0.05rem 0.1rem rgba(0, 0, 0, 0.5); */
+    /* box-shadow: inset 0 0 5rem rgba(0, 0, 0, 0.5); */
+    /* max-height: 100%; */
+
 
 
 }
@@ -35,6 +46,7 @@ nav{
     margin-top: 40px;
     font-weight: bold;
     text-align: center;
+    color: white;
 
     
 }
@@ -49,7 +61,8 @@ nav{
     text-align: center;
     padding-right: 25%;
     padding-left: 25%;
-    font-size: 20px;
+    font-size: 22px;
+    color: white;
  
 
 }
@@ -57,7 +70,7 @@ nav{
     padding: 40px;
 }
 
-.loginButton,.SignButton,#SignUpbutton2,#button2{
+.loginButton,.SignButton{
     width: 130px;
     padding: 12px 0;
     text-align: center;
@@ -67,7 +80,8 @@ nav{
     border: 2px solid #009688;
     background: transparent;
     cursor: pointer;
-    color: rgb(37, 143, 5);
+    color: white;
+    /* color: rgb(37, 143, 5); */
 }
 .SignButton{
     margin-left: 12px;

@@ -145,12 +145,13 @@ router.get('/UserSection',isLoggedIn,async (req, res) => {
 //     res.render('UserOverview');   
 // })
 
-router.post('/LogIn',passport.authenticate('local', { failureRedirect: '/LogIn',keepSessionInfo: true, failureMessage: true },),async (req, res) => {
+router.post('/LogIn',passport.authenticate('local', {failureFlash: true, failureRedirect: '/LogIn',keepSessionInfo: true, failureMessage: true },),async (req, res) => {
   
     const redirectUrl = req.session.returnTo || '/UserSection';
     
     delete req.session.returnTo;
-    
+    req.flash("success","You are now logged in")
+    req.flash("error","Incorrect Password or Username");
     res.redirect(redirectUrl);
 
 })
@@ -299,12 +300,17 @@ router.post('/Register', async (req, res) => {
 
     const newUser = new Mentee({username,Surname,Email,Name,lesson1,lesson2,lesson3,lesson4,lesson5,
         lesson6,lesson7,lesson8,lesson9,lesson10})
-
-    const registerUser = await Mentee.register(newUser,password);
-    req.login(registerUser, function(err) {
-        if (err) { return next(err); }
-        return res.redirect('/UserSection');
-      });
+    try {
+        const registerUser = await Mentee.register(newUser,password);
+        req.login(registerUser, function(err) {
+            if (err) { return next(err); }
+            return res.redirect('/UserSection');
+          });
+    } catch (error) {
+        req.flash('error', 'A user with a given username is already registered');
+        res.redirect('/SignUp');
+    }
+   
 })
 
 
