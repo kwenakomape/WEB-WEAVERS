@@ -7,7 +7,10 @@
     <div class="lessonPageSection">
         <h1>Time starts now: <span id="time"></span></h1>
         <h2>Lesson 7:  Exam Preparation</h2>
-        <p> Welcome to Week 7 of our academic journey! We've covered everything from coffee addiction 
+        <div class="DisplayFlex">
+            <div class="DescriptionAndVideo">
+            <p class="LessonDescription">
+             Welcome to Week 7 of our academic journey! We've covered everything from coffee addiction 
             to time-traveling through effective time management. Now, it's time to tackle a topic that's 
             as important as knowing where to find the best student discounts in town - Managing Money!
 
@@ -18,12 +21,48 @@
             During this session, we'll explore various aspects of managing money, from budgeting to investing. 
             But before we get into the nitty-gritty, let's kick things off with a video that'll have you saying, 
             "I wish I knew this when I got my first allowance."
-        </p>
+            </p>
         <div  class="watchVideo">
             
             <iframe id="myIFrame" width="560" height="315" src="https://www.youtube.com/embed/AYR-RuGwJbM" title="The Pomodoro Technique | Study And Productivity Technique (animated) | Better Than Yesterday" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen>
 
             </iframe>
+        </div>
+        </div>
+
+
+
+        <div  class="chatApplication">
+                <div>
+                    <h2>Join ChatRoom</h2>
+                    <br>
+                    <button class="JoinButton" id="button2">Join Chat</button>
+                </div>
+                
+            </div>
+            
+            <div class ="chatSection"> 
+                <div class="ChatNavBar">
+                    
+                    
+                    <div class="chatRoomTitle" >ChatRoom </div>
+                    <button class="ExitButton" id="ClickExit" >Exit</button>
+                </div>
+                <div class="messages">
+                </div>
+                <div class="TextandSend">
+                    <!-- <textarea name="UserTextArea" id="Message" cols="30" rows="10"></textarea> -->
+                    <input type="text" id="message-input">
+                    <button class="SendButton" >Send</button>
+            
+                </div>
+            
+            </div>
+                
+            
+            
+            
+        
         </div>
         <br>
         <h2 >Resources: Exam Preparation</h2>
@@ -48,7 +87,9 @@
     </div>
 </Section>
 </section>
+<script src="/socket.io/socket.io.js"></script>
+
 <script src="/javascripts/CollaspseMenu.js"></script>
 <script src="/javascripts/Metrics.js"></script>
 
-
+<script src="/javascripts/ChatROOM.js"></script>
