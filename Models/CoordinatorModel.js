@@ -9,10 +9,7 @@ const UserSchema = new Schema ({
         type: String,
     },
     Surname: String,
-    AccesCode: {
-        type: String,
-        default: "UCT07"
-    },
+
     Name: String,
     Role: {
         type: String,

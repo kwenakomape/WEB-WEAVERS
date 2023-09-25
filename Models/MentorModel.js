@@ -8,10 +8,6 @@ const UserSchema = new Schema({
     username: {
         type: String,
     },
-    AccesCode: {
-        type: String,
-        default: "UCT07"
-    },
     Surname: String,
     Name: String,
     Role: {

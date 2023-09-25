@@ -103,10 +103,6 @@ const UserSchema = new Schema({
         resourcesClicks: Number,
         timeSpent: Number,
         pageVisited:Number
-    },  
-    AccesCode: {
-        type: String,
-        default: "UCT07"
     }
 });
 UserSchema.plugin(passportLocalMongoose);
