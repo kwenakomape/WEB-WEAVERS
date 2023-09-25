@@ -3,7 +3,10 @@ const Schema = mongoose.Schema;
 const passportLocalMongoose = require('passport-local-mongoose');
 
 // This class is for students(mentees), they will have to register by providing their details.
-// The data will be sent to the database
+// The data will be sent to the database , the class also stores lesson information for each lesson
+//Lesson information is measure of interaction of students with material provided on the plartorm
+//We measure very Interaction a student does and save it in the database for analytics
+
 const UserSchema = new Schema({
  
     Surname: String,

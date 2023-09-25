@@ -1,9 +1,11 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 const passportLocalMongoose = require('passport-local-mongoose');
-// This class  is for staff members, which are mentor and coordinator
-// The stuff staff member they dont have to register, the logic wil be implemented @ the
-// back end to gent access codes to use the platform
+
+
+//This class is for one of staff memnber,which in this case will be
+//Mentor, we will store Mentor  details from our site 
+// An they will have access to the site without regitering
 const UserSchema = new Schema({
     username: {
         type: String,
