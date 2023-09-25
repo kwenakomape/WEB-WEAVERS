@@ -18,7 +18,7 @@
         </div>
         <!-- <div class="UserTab" onclick="location.href='/SectionInfo/MentorshipSession';" ><span class="menuIcons"><i class="fa-solid fa-comment"></i></span>Chatroom</div> -->
         <div class="UserTab"  onclick="location.href='/SectionInfo/MentorshipSession';"><span class="menuIcons"><i class="fa-solid fa-user"></i></span></i>Section Info</div>
-        <%# if (currentUser.Role==='Coordinator'){%>
+        <% if (currentUser.Role==='Coordinator'){%>
             <div class="UserTab" onclick="location.href='/viewAllboards';"><span class="menuIcons"><i class="fa-solid fa-chalkboard"></i></span>View WhiteBoards</div>
             <div class="UserTab" onclick="location.href='/Report';" ><span class="menuIcons"><i class="fa-solid fa-file"></i></span>Report</div>
             <div class="UserTab" onclick="location.href='/Analysis';"><span class="menuIcons"><i class="fa-solid fa-chart-line"></i></span>Analytics</div>
