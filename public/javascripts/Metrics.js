@@ -86,7 +86,7 @@ window.addEventListener("focus", function() {
 window.setInterval(function() {
   trackTime();
   // console.log("Total time spent on page: " + totalTime / 1000 + " seconds");
-  document.querySelector('#time').innerHTML = totalTime / 1000 ;
+  // document.querySelector('#time').innerHTML = totalTime / 1000 ;
 }, 1000);
 
 // track time when user closes the window
