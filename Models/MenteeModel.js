@@ -7,11 +7,11 @@ const passportLocalMongoose = require('passport-local-mongoose');
 const UserSchema = new Schema({
  
     Surname: String,
-    StudentID: String,
     Email: String,
+    Name: String,
     Role: {
         type: String,
-        default: "Student"
+        
     },
     lesson1:{
         pageNo: String,
@@ -103,6 +103,10 @@ const UserSchema = new Schema({
         resourcesClicks: Number,
         timeSpent: Number,
         pageVisited:Number
+    },  
+    AccesCode: {
+        type: String,
+        default: "UCT07"
     }
 });
 UserSchema.plugin(passportLocalMongoose);

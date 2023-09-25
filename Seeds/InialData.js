@@ -1,10 +1,9 @@
 const mongoose = require('mongoose');
-const MenteeDetails = require('../Models/MenteeModel');
-
+const MentorDetails = require('../Models/MentorModel');
+const CoordinatorDeatils = require('../Models/CoordinatorModel');
 
 mongoose.connect('mongodb://0.0.0.0:27017/WebWeaversData', {
     useNewUrlParser: true,
-    useCreateIndex: true,
     useUnifiedTopology: true
 });
 
@@ -15,19 +14,33 @@ db.once("open", () => {
     console.log("Database connected");
 });
 
-let StaffDetails = [{Username:"John", password:"UCT07", Email:"JTYGH@myuct.ac.za", Role:"Mentor"},
- {Username:"Brian", password:"UCT07", Email:"BRNAGH@myuct.ac.za", Role:"Mentor"},
- {Username:"Cele", password:"UCT07", Email:"CELBHGH@myuct.ac.za", Role:"Mentor"},
- {Username:"Ashley", password:"UCT07", Email:"AYLSHE@myuct.ac.za", Role:"Mentor"},
- {Username:"Jackson", password:"UCT07", Email:"JNSONA@myuct.ac.za", Role:"Mentor"},
- {Username:"Paul", password:"UCT07", Email:"LAUP@myuct.ac.za", Role:"Mentor"},
- {Username:"Paul", password:"UCT07", Email:"LAUP@myuct.ac.za", Role:"Mentor"},
- {Username:"STEPHEN", password:"UCT07", Email:"STEPHEN@myuct.ac.za", Role:"oordinator"},
- {Username:"GARY", password:"UCT07", Email:"GARY@myuct.ac.za", Role:"Coordinator"}];
+TempListMentors = [{Name:"John",  Email:"JTYGGHY03@myuct.ac.za", Role:"Mentor" ,username:"John" ,Surname:"Spike"},
+                    {Name:"Brian", Email:"BNPAWI002@myuct.ac.za", Role:"Mentor" ,username:"Brian" ,Surname:"Baloi"},
+                    {Name:"James", Email:"JNEAWIY03@myuct.ac.za", Role:"Mentor" ,username:"James" ,Surname:"Ben"},
+                    {Name:"Luke", Email:"LNKAEYH01@myuct.ac.za", Role:"Mentor" ,username:"Luke" ,Surname:"Mason"}];
+
+ListCoordinators ={Name:"Gary", Email:"gstewart@cs.uct.ac.za", Role:"Coordinator" ,username:"Gary" ,Surname:"Stewart"};
+
 
 const seedDB = async () => {
-    await Campground.deleteMany({});
+    await MentorDetails.deleteMany({});
+    await CoordinatorDeatils.deleteMany({});
     
+    for(i=0;i<TempListMentors.length;i++){
+
+        const newUser = new MentorDetails(TempListMentors[i]);
+        await  newUser.save();
+        // const registerUser = await MentorDetails.register(newUser,"UCT07");
+        
+    }
+   
+    const newUser = new CoordinatorDeatils(ListCoordinators);
+    await  newUser.save();
+    // const registerUser = await CoordinatorDeatils.register(newUser,"UCT07");
+
+}
+
 seedDB().then(() => {
+    console.log("data sent.....")
     mongoose.connection.close();
 })

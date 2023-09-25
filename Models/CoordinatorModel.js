@@ -1,15 +1,19 @@
 const mongoose = require('mongoose');
-
+const Schema = mongoose.Schema;
+const passportLocalMongoose = require('passport-local-mongoose');
 // This class  is for staff members, which are mentor and coordinator
 // The stuff staff member they dont have to register, the logic wil be implemented @ the
 // back end to gent access codes to use the platform
-const UserSchema = new mongoose.Schema({
-    staffID: {
+const UserSchema = new Schema ({
+    username: {
         type: String,
     },
-    Password: {
+    Surname: String,
+    AccesCode: {
         type: String,
+        default: "UCT07"
     },
+    Name: String,
     Role: {
         type: String,
         default: "Coordinator"
@@ -21,6 +25,6 @@ const UserSchema = new mongoose.Schema({
     
     
 });
-
+UserSchema.plugin(passportLocalMongoose);
 const CoordinatorDetails = mongoose.model('CoordinatorDetails', UserSchema);
 module.exports = CoordinatorDetails;
