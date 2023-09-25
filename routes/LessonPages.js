@@ -1,3 +1,9 @@
+
+//Here we are defining routes for each lessopages
+//Each page have diffrent material ,so we need to display 
+//content related to each lesson
+//We are using passport authentication to protect each route
+//Only users who are authenticated and authorized are allowed to access the pages
 const express = require('express');
 const router = express.Router();
 const Mentee = require('../Models/MenteeModel');

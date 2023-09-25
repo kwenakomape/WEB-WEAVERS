@@ -139,11 +139,6 @@ router.get('/UserSection',isLoggedIn,async (req, res) => {
     // res.render('Mentee');
     res.render('UserOverview');   
 })
-// router.get('/UserSection/StaffView',async (req, res) => {
-    
-//     // res.render('Mentee');
-//     res.render('UserOverview');   
-// })
 
 router.post('/LogIn',passport.authenticate('local', {failureFlash: true, failureRedirect: '/LogIn',keepSessionInfo: true, failureMessage: true },),async (req, res) => {
   
@@ -156,7 +151,7 @@ router.post('/LogIn',passport.authenticate('local', {failureFlash: true, failure
 
 })
 
-
+//Here we are updating the data from user interaction to the database
 router.post('/UpdateDateBase',isLoggedIn,async (req, res) => {
     
     const {pageNumber,countPdfClicks,videoClicks,timeSpent,WhiteBoardClicks,ElementName} = req.body;
@@ -172,20 +167,20 @@ router.post('/UpdateDateBase',isLoggedIn,async (req, res) => {
     const UpdateDateBase = async function (){
         
         await Mentee.updateMany({_id: req.user._id},{ $set: SetProperty1});
-        //await Metrics.updateMany({_id: req.user._id},{ $set: SetProperty1});
+        
        
         if(ElementName==='pdFileClick'){
             await Mentee.updateMany({_id: req.user._id},{ $inc: SetProperty2});
-            //await Metrics.updateMany({_id: req.user._id},{ $inc: SetProperty2});
+            
         }else if(ElementName==='VideoClick'){
             await Mentee.updateMany({_id: req.user._id},{ $inc: SetProperty3});
-            //await Metrics.updateMany({_id: req.user._id},{ $inc: SetProperty3});
+            
         }else if(ElementName==='BoardClick'){
             await Mentee.updateMany({_id: req.user._id},{ $inc: SetProperty4});
-            //await Metrics.updateMany({_id: req.user._id},{ $inc: SetProperty4});
+            
         }else if(ElementName==='beforeunload'){
             await Mentee.updateMany({_id: req.user._id},{ $inc: SetProperty5});
-            //await Metrics.updateMany({_id: req.user._id},{ $inc: SetProperty5});
+            
         }
 
     };
@@ -277,7 +272,7 @@ router.post('/UpdateDateBase',isLoggedIn,async (req, res) => {
 })
 
 
-
+//This router is Regitering User information to the data base
 router.post('/Register', async (req, res) => {
     
     lesson1 = {countPdfClicks: 0,videoClicks: 0,WhiteBoardClicks: 0,timeSpent: 0,pageVisited: 0};
@@ -291,10 +286,7 @@ router.post('/Register', async (req, res) => {
     lesson9 = {countPdfClicks: 0,videoClicks: 0,WhiteBoardClicks: 0,timeSpent: 0,pageVisited: 0};
     lesson10 = {countPdfClicks: 0,videoClicks: 0,WhiteBoardClicks: 0,timeSpent: 0,pageVisited: 0};
 
-    // const {username,Surname,password,StudentID,Email} = req.body;
-    // const newUser = new Mentee({username,Surname,StudentID,Email,
-    //                             lesson1,lesson2,lesson3,lesson4,lesson5,
-    //                             lesson6,lesson7,lesson8,lesson9,lesson10});
+    
     
     const {username,Name,Surname,password,Email} = req.body;
 
@@ -314,7 +306,7 @@ router.post('/Register', async (req, res) => {
 })
 
 
-
+//This route ends session when user logs out
 router.get('/logout', function(req, res, next) {
     req.logout(function(err) {
       if (err) { return next(err); }
@@ -322,6 +314,8 @@ router.get('/logout', function(req, res, next) {
     });
   });
 
+
+  //Router for displaying Graphs
 router.post('/Analysis',isLoggedIn,async (req, res) => {
     
  

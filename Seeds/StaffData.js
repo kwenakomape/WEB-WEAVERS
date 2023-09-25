@@ -1,3 +1,8 @@
+
+//This Class stores Staff Data to the Database
+//The coordinator and mentor they dont have to register
+//They will be given access code to acess the plartform
+
 const mongoose = require('mongoose');
 const MentorDetails = require('../Models/MentorModel');
 const Mentee = require('../Models/MenteeModel');

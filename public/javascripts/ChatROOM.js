@@ -1,4 +1,9 @@
 
+// This code is intergrating charroom with lesson page for streamline site,to make
+//lesson more focused
+//We are going listen to events and send messages between students  send through
+//using socket programming
+
 (function(){
     // console.log("Hello..");
     // const DisplayChatRoom = document.querySelector(".DisplayFlex");

@@ -1,4 +1,7 @@
 
+//This going is going to make collapseble drop down menu
+
+
 var coll = document.querySelectorAll("#lessons");
 JoinLink = document.querySelector(".JoinLink");
 JoinLink2 = document.querySelector(".JoinLink2");
@@ -49,8 +52,4 @@ JoinLink3.addEventListener("click", function(event) {
   
 
 });
-
-
-// console.log(JoinLink.innerHTML);
-
 

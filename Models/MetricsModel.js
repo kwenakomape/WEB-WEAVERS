@@ -3,7 +3,7 @@ const Schema = mongoose.Schema;
 
 //In this class  we going to store meausrement from student interaction
 //with the material on the plartform
-//every click and time spent on the page will be store
+//every click and time spent on the page will be store in the database
 
 const Lesson = new Schema({
     

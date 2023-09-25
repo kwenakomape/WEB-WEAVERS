@@ -1,5 +1,7 @@
-const express = require("express");
 
+// This is our Server class where the app is running on
+
+const express = require("express");
 const path = require('path');
 const mongoose = require('mongoose');
 const ejsMate = require('ejs-mate');
@@ -10,14 +12,16 @@ const MongoDBStore = require("connect-mongo")(session);
 const cookiepaerser = require('cookie-parser');
 const flash = require('connect-flash');
 
-// const server = require("http").createServer(app);
-// const io = require("socket.io")(server);
+
 const { createServer } = require('node:http');
 const { Server } = require('socket.io');
 const app = express();
 app.use(express.json());
 const server = createServer(app);
 const io = new Server(server);
+
+
+//create socket connection for chat application
 
 io.on("connection", function(socket){
 	socket.on("newuser",function(username){
@@ -31,10 +35,7 @@ io.on("connection", function(socket){
 	});
 });
 
-
-// const cors = require('cors');
-// app.use(cors())
-
+//connecting to our local mongoDb database
 
 const dbUrl = process.env.DB_URL || 'mongodb://0.0.0.0:27017/WebWeaversData';
 const secret = process.env.SECRET || 'thisshouldbeabettersecret!';
@@ -98,24 +99,13 @@ app.use(passport.session());
 
 passport.use(new LocalStrategy(Mentee.authenticate()));
 
-// passport.use(new LocalStrategy(MentorDetails.authenticate()));
-// passport.use(new LocalStrategy(CoordinatorDeatils.authenticate()));
-
 passport.serializeUser(Mentee.serializeUser());
-// passport.serializeUser(MentorDetails.serializeUser());
-// passport.serializeUser(CoordinatorDeatils.serializeUser());
-
 
 passport.deserializeUser(Mentee.deserializeUser());
-// passport.deserializeUser(MentorDetails.deserializeUser())
-// passport.deserializeUser(CoordinatorDeatils.deserializeUser())
 
 app.use((req, res, next) => {
     
-    // console.log(req.session);
-    // console.log(req.path);
-    // console.log("****************");
-    // console.log(req.orignalUrl);
+   
     res.locals.currentUser = req.user;
     res.locals.success = req.flash('success');
     res.locals.error = req.flash('error');

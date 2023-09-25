@@ -1,3 +1,9 @@
+//This Class is going to measure the metrics,which are number of clicks ,time spent,
+//interaction in the lessonpage
+
+//Using timer to measure the time student opens page and closes it
+//for Every Student interaction with the system we send the information to the 
+//database
 
 let countPdfClicks = 0;
 let WhiteBoardClicks = 0;
