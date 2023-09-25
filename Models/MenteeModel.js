@@ -11,7 +11,7 @@ const UserSchema = new Schema({
     Name: String,
     Role: {
         type: String,
-        
+        default: "Student"
     },
     lesson1:{
         pageNo: String,

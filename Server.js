@@ -15,6 +15,7 @@ const flash = require('connect-flash');
 const { createServer } = require('node:http');
 const { Server } = require('socket.io');
 const app = express();
+app.use(express.json());
 const server = createServer(app);
 const io = new Server(server);
 

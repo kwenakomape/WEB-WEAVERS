@@ -101,4 +101,4 @@ const Lesson = new Schema({
 });
 // Metrics.plugin(passportLocalMongoose);
 const LessonInfo = mongoose.model('Metrics', Lesson);
-module.exports = LessonInfo;
+module.exports = {LessonInfo};

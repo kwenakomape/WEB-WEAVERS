@@ -6,29 +6,29 @@
 //     console.log()
 //   };
   
-// document.querySelector('.ShowCharts').addEventListener('click', changeSelected);
-ShowButton = document.querySelector('.ShowCharts');
-// OptionValue = document.querySelector('.lesson-select').value;
-// // console.log(x);
-// // function myFunction() {
-// //   //console.log(getElementById("mySelect").value)
-// //   document.getElementById("pet-select").value = "banana";
+// // document.querySelector('.ShowCharts').addEventListener('click', changeSelected);
+// ShowButton = document.querySelector('.ShowCharts');
+// // OptionValue = document.querySelector('.lesson-select').value;
+// // // console.log(x);
+// // // function myFunction() {
+// // //   //console.log(getElementById("mySelect").value)
+// // //   document.getElementById("pet-select").value = "banana";
   
-// // }
+// // // }
 
 
-// // myFunction();
+// // // myFunction();
 
-ShowButton.addEventListener("click", function(req, res) {
+// ShowButton.addEventListener("click", function(req, res) {
     
-    LessonNumber = document.querySelector('.lesson-select').value;
+//     LessonNumber = document.querySelector('.lesson-select').value;
     
-    // onclick="location.href='/LessonPage/lesson10';"
-    // SendToDataBase(LessonNumber);
-    // if(LessonOptions=="All"){
-    //     console.log("hahaha");
-    // }
-;});
+//     // onclick="location.href='/LessonPage/lesson10';"
+//     // SendToDataBase(LessonNumber);
+//     // if(LessonOptions=="All"){
+//     //     console.log("hahaha");
+//     // }
+// ;});
 
 
 

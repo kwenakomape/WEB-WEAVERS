@@ -103,6 +103,7 @@ router.get('/download/:fileName', (req, res) => {
 });
 const{isLoggedIn} = require('../Middleware');
 const{isMentorOrCoordinator} = require('../Middleware');
+const CoordinatorDetails = require('../Models/CoordinatorModel');
 
 router.get('/', (req, res) => {
 
@@ -262,7 +263,7 @@ router.post('/UpdateDateBase',isLoggedIn,async (req, res) => {
         SetProperty5 = {"lesson9.timeSpent":time};
         UpdateDateBase(pageVisited,1,SetProperty1,SetProperty2,SetProperty3,SetProperty4,SetProperty5);
     }else if(pageNumber==="page10"){
-        pageVisited = req.session.countVisitedSitedPage2;
+        pageVisited = req.session.countVisitedSitedPage10;
         SetProperty1 = {"lesson10.pageVisited":pageVisited}
         SetProperty2 = {"lesson10.countPdfClicks":pdf};
         SetProperty3 = {"lesson10.videoClicks":vid};
@@ -293,17 +294,10 @@ router.post('/Register', async (req, res) => {
     // const newUser = new Mentee({username,Surname,StudentID,Email,
     //                             lesson1,lesson2,lesson3,lesson4,lesson5,
     //                             lesson6,lesson7,lesson8,lesson9,lesson10});
-  
-    const {username,Name,Surname,password,Email} = req.body;
     
-    Role = "Student";
+    const {username,Name,Surname,password,Email} = req.body;
 
-    if(password=="UCT07"){
-        Role = "Coordinator";
-    }
-
-    const newUser = new Mentee({username,Surname,Email,Name,Role,
-        lesson1,lesson2,lesson3,lesson4,lesson5,
+    const newUser = new Mentee({username,Surname,Email,Name,lesson1,lesson2,lesson3,lesson4,lesson5,
         lesson6,lesson7,lesson8,lesson9,lesson10})
 
     const registerUser = await Mentee.register(newUser,password);
@@ -347,12 +341,16 @@ router.post('/Analysis',isLoggedIn,async (req, res) => {
     if(LessonNumber==="All"){
         for(let i=0;i<CombinedLessons.length;i++){
             for(let j=0;j<GetAllData.length;j++){
+                
 
                 TotalsPdfClicks+= GetAllData[j][CombinedLessons[i]].countPdfClicks;
                 TotalsVideoClicks+= GetAllData[j][CombinedLessons[i]].videoClicks;
                 TotalsBoardClicks+= GetAllData[j][CombinedLessons[i]].WhiteBoardClicks;
                 TotalTime+= (GetAllData[j][CombinedLessons[i]].timeSpent);
                 TotalpageVisit+= GetAllData[j][CombinedLessons[i]].pageVisited;
+
+                
+                
                 
             }
             CombinedPdfClicks.push(TotalsPdfClicks);
@@ -377,11 +375,16 @@ router.post('/Analysis',isLoggedIn,async (req, res) => {
         
     }else{
         for(let i=0;i<GetAllData.length;i++){
-            TotalsPdfClicks+= GetAllData[i][LessonNumber].countPdfClicks;
-            TotalsVideoClicks+= GetAllData[i][LessonNumber].videoClicks;
-            TotalsBoardClicks+= GetAllData[i][LessonNumber].WhiteBoardClicks;
-            TotalTime+= GetAllData[i][LessonNumber].timeSpent;
-            TotalpageVisit+= GetAllData[i][LessonNumber].pageVisited;
+            
+           
+                TotalsPdfClicks+= GetAllData[i][LessonNumber].countPdfClicks;
+                TotalsVideoClicks+= GetAllData[i][LessonNumber].videoClicks;
+                TotalsBoardClicks+= GetAllData[i][LessonNumber].WhiteBoardClicks;
+                TotalTime+= GetAllData[i][LessonNumber].timeSpent;
+                TotalpageVisit+= GetAllData[i][LessonNumber].pageVisited;
+
+            
+           
             
         }
     }  

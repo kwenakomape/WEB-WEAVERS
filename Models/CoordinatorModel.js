@@ -8,6 +8,8 @@ const UserSchema = new Schema ({
     username: {
         type: String,
     },
+    Check: String,
+    Tax: String,
     Surname: String,
 
     Name: String,
@@ -17,7 +19,6 @@ const UserSchema = new Schema ({
     },
     Email: {
         type: String,
-        default: "GHGGHY788@myuct.ac.za"
     }
     
     
