@@ -2,10 +2,13 @@
     <div class="UserInnerNav">
         <div class="logo">MENTKNOW</div>
         <div class="profile-container">
-            <img class="profileImage" src="/profile.jpg" id="profileImage" alt="Profile Image" />
-            <div class="dropdown-content" id="dropdownContent">
-                <a onclick="location.href='/logout';">Logout</a>
-            </div>
+            <% if(currentUser) {%>
+                <div><img class="profileImage" src="/profile.jpg" /></div>
+                <div class="dropdown-content" id="dropdownContent">
+                    <a onclick="location.href='/logout';">Logout</a>
+                </div>
+            <% } %>
+           
         </div>
     </div>
 </nav>
