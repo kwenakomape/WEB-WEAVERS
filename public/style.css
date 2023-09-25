@@ -8,7 +8,7 @@
 
 body{
    
-    font-family: Arial, Helvetica, sans-serif; */
+    font-family: Arial, Helvetica, sans-serif;
     /* font-family: "Roboto",sans-serif; */
     transition-duration: 9s;
 }
@@ -22,7 +22,10 @@ nav{
 
 .Homepage{
     padding: 20px;
+
+
 }
+
  .logo,.homepageTitle{
     font-size: 32px;
     
@@ -31,19 +34,27 @@ nav{
 
     margin-top: 40px;
     font-weight: bold;
+    text-align: center;
+
+    
 }
 .Description{
     margin-top: 15px;
+    text-align: center;
 
 }
+
+
 .DescriptionText{
-    width: 30%;
+    text-align: center;
+    padding-right: 25%;
+    padding-left: 25%;
     font-size: 20px;
-    padding: 4px;
-    margin-bottom: 5px;
+ 
+
 }
 .LogSignButtons{
-    padding: 4px;
+    padding: 40px;
 }
 
 .loginButton,.SignButton,#SignUpbutton2,#button2{
@@ -407,21 +418,4 @@ nav{
     padding-right: 100px;
 
 }
-
-/* .OverviewDescription p{
-    width: 50%;
-} */
-
-.OverviewImage{
-    /* width: 50%; */
-    /* height: 50%; */
-    /* margin-left: 30px; */
-    /* padding-left: 30px; */
-}
-
-
-
-
-
-
 
