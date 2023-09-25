@@ -1,7 +1,10 @@
 <nav>
     <div class="UserInnerNav">
         <div class="logo">MENTKNOW</div>
-        <div><img class="profileImage" src="/profile.jpg" /></div>
+        <% if(currentUser) {%>
+            <div><img class="profileImage" src="/profile.jpg" /></div>
+        <% } %>
+        
        
     </div>      
 </nav>
