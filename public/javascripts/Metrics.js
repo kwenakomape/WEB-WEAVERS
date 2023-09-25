@@ -28,6 +28,8 @@ window.addEventListener('blur', function () {
             if (document.activeElement == document.querySelector('#whiteboard_team') ) {
                 WhiteBoardClicks=1;
                 SendToDataBase("BoardClick");
+                isActive =true;
+                event.preventDefault();
             }else if(document.activeElement == document.querySelector('#myIFrame')){
                 videoClicks=1;
                 SendToDataBase("VideoClick");
