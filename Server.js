@@ -1,6 +1,12 @@
 
 // This is our Server class where the app is running on
 
+
+if (process.env.NODE_ENV !== "production") {
+    require('dotenv').config();
+}
+
+
 const express = require("express");
 const path = require('path');
 const mongoose = require('mongoose');
@@ -38,6 +44,7 @@ io.on("connection", function(socket){
 //connecting to our local mongoDb database
 
 const dbUrl = process.env.DB_URL || 'mongodb://0.0.0.0:27017/WebWeaversData';
+
 const secret = process.env.SECRET || 'thisshouldbeabettersecret!';
 
 const Mentee = require('./Models/MenteeModel');
@@ -116,8 +123,9 @@ app.use((req, res, next) => {
 app.use('/',UserRoutes)
 app.use('/',LessonPagesRoutes)
 
+const port = process.env.PORT || 3000;
 
-server.listen(3000,() =>{
+server.listen(port,() =>{
     console.log("Server running...");
 })
 

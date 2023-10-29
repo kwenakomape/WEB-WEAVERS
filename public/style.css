@@ -60,7 +60,7 @@ nav{
     padding: 40px;
 }
 
-.loginButton,.SignButton{
+.loginButton,.SignButton,.JoinButton{
     width: 130px;
     padding: 12px 0;
     text-align: center;
@@ -70,9 +70,10 @@ nav{
     border: 2px solid #009688;
     background: transparent;
     cursor: pointer;
-    color: white;
+    color: wheat;
     /* color: rgb(37, 143, 5); */
 }
+
 .SignButton{
     margin-left: 12px;
 }
@@ -278,12 +279,13 @@ nav{
     width: 50%;
 }
  .chatApplication{
+    background-image: url("https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&q=80&w=870&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
     display: flex;
-    width: 640px;
+    width: 620px;
     align-items: center;
     justify-content: space-around;
     /* height: 350px; */
-    margin-left: 70px;
+    margin-left: 50px;
     border: 2px solid rgb(212, 206, 206);
  } 
 

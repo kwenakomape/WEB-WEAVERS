@@ -3,12 +3,21 @@
 //The coordinator and mentor they dont have to register
 //They will be given access code to acess the plartform
 
+
+if (process.env.NODE_ENV !== "production") {
+    require('dotenv').config();
+}
+
 const mongoose = require('mongoose');
 const MentorDetails = require('../Models/MentorModel');
 const Mentee = require('../Models/MenteeModel');
 const CoordinatorDeatils = require('../Models/CoordinatorModel');
 
-mongoose.connect('mongodb://0.0.0.0:27017/WebWeaversData', {
+const dbUrl = process.env.DB_URL || 'mongodb://0.0.0.0:27017/WebWeaversData';
+
+
+
+mongoose.connect(dbUrl, {
     useNewUrlParser: true,
     useUnifiedTopology: true
 });
